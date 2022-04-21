@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.jmsalazar.app",
+      "sha256_cert_fingerprints": [
+        "12:41:63:9E:4C:3F:8A:AE:2B:BC:2E:B8:D3:1F:EF:6A:60:F4:DB:D3:3D:FF:FD:AD:2F:C8:BE:B1:5D:17:E1:3E"
+      ]
+    }
+  }
+]

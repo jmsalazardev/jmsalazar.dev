@@ -1,0 +1,33 @@
+<footer>
+    <div class="footer-container">
+        <nav>
+            {%- for entry in collections.all | eleventyNavigation(locale.lang + "-home")  %}
+                <a href="{{ entry.url | url }}">
+                    <span>{{ entry.title}}</span>
+                </a>
+            {%- endfor %}
+            <a href="/contact/" title="{{ 'footer.contact' | i18n(locale) }}" rel="noopener">{{ 'footer.contact' | i18n(locale) }}</a>
+            <a href="/conditions/" title="{{ 'footer.conditions' | i18n(locale) }}" rel="noopener">{{ 'footer.conditions' | i18n(locale) }}</a>
+            <a href="/privacy-policy/" title="{{ 'footer.privacyPolicy' | i18n(locale) }}" rel="noopener">{{ 'footer.privacyPolicy' | i18n(locale) }}</a>
+        </nav>
+
+        <div class="social-media">
+            {% for name, item in metadata.links %}
+                {% set icon = '/assets/svg/' + name + '.svg' %}
+                <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener" class="{{ name }}">
+                    <i class="{{name}}">{{ icon | svgContents | safe }}</i>
+                </a>
+            {% endfor %}
+
+        </div>
+
+        <hr class="divider" />
+
+        <p class="description">
+            <a href="/">{{ metadata.title }}</a>– {{ metadata.description }}
+        </p>
+
+        Copyright © {{ helpers.currentYear() }}
+    </div>
+
+</footer>

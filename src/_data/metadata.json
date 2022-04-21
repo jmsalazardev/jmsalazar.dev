@@ -1,0 +1,34 @@
+{
+    "title": "JMSalazarDev",
+    "url": "https://jmsalazar.dev",
+    "description": "Un blog de un desarrollador de software",
+    
+    "themeColor": "#272b30",
+    "links": {
+      "twitter": "https://twitter.com/jmsalazardev/",
+      "instagram": "https://www.instagram.com/jmsalazar/",
+      "youtube": "https://www.youtube.com/channel/UCPVqtdfz41-GZvviFeO87rA/"
+    },
+    "social": {
+      "twitter": {
+        "id": "jmsalazardev",
+        "link": "https://twitter.com/jmsalazardev/"
+      }
+    },
+    "feed": {
+      "subtitle": "JMSalazarDev",
+      "filename": "feed.xml",
+      "path": "/feed/feed.xml",
+      "id": "https://jmsalazar.dev"
+    },
+    "jsonfeed": {
+      "path": "/feed/feed.json",
+      "url": "https://jmsalazar.dev/feed/feed.json"
+    },
+    "author": {
+      "name": "José Miguel Salazar",
+      "email": "contacto@jmsalazar.dev",
+      "url": "https://jmsalazar.dev/contacto/"
+    }
+  }
+  

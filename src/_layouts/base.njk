@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ locale.lang }}" dir="{{ locale.dir }}">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='x-ua-compatible' content='ie=edge'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="{{ site.manifest.theme_color  }}">
+
+        {% for link in alternate %}
+        {% if link.type == 'lang' %}
+        <link rel="alternate" hreflang="{{ link.hreflang }}" href="{{ site.url }}{{ link.href }}" />
+        {% endif %}
+        {% endfor %}
+
+        {{ site.manifest | manifest | safe }}
+        
+        {% set appleIcons = helpers.appleIcons() %}
+        {% for icon in appleIcons %}
+        <link rel="apple-touch-icon" type="{{ icon.type }}" sizes="{{ icon.sizes }}" href="/{{ icon.src}}" />
+        {% endfor %}
+        
+        <meta name="theme-color" content="#ffffff">
+
+
+        <style>
+            {{tmplClass | inlineCSS | cssmin | safe}}
+        </style>
+
+        {% seo "" %}
+        {% if site.facebook.appId %}
+        <meta property="fb:app_id" content="{{ site.facebook.appId }}" />
+        {% endif %}
+
+         {% include "ga.njk" %}
+         {% include "ads.njk" %}
+    </head>
+    <body>
+        <div class="container dark-theme {{ tmplClass }}">
+            {% include "header.njk" %}
+            {{ content | safe}}
+            {% include "footer.njk" %}
+        </div>
+        <script>
+            const disqus_config = function () {
+                this.page.url = "{{ site.url }}{{ page.url }}";
+                this.page.identifier = "{{ page.url | slug }}";
+            };
+            {{tmplClass | inlineJS | safe}}
+        </script>
+    </body>
+</html>
