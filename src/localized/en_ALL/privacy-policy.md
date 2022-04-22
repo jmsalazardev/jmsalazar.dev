@@ -1,5 +1,5 @@
 ---
-layout: post.njk
+layout: layouts/post
 title: Privacy Policy
 description: Do you have questions about how we handle your data? Check the privacy policy of JMSalazar.dev, happy to read your comments.
 date: 2022-04-05T00:00:00.000+01:00

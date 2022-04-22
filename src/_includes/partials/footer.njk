@@ -13,9 +13,9 @@
 
         <div class="social-media">
             {% for name, item in metadata.links %}
-                {% set icon = '/assets/svg/' + name + '.svg' %}
+                {% set icon = 'svg/' + name + '.svg' %}
                 <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener" class="{{ name }}">
-                    <i class="{{name}}">{{ icon | svgContents | safe }}</i>
+                    <i class="{{name}}">{% include icon %}</i>
                 </a>
             {% endfor %}
 

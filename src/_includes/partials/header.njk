@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="logo">
         <a href="/">
-            <i>{{ "/assets/svg/jmsalazardev.svg" | svgContents | safe }}</i>
+            <i>{% include "svg/code.svg" %}</i>
             {{ site.name }}
         </a>
     </div>
@@ -16,7 +16,7 @@
                     <li{% if entry.key == page.collection %} class="active"{% endif %}>                    
                         <a href="{{ entry.url | url }}">
                             {% if entry.icon %}
-                                {{ entry.icon | svgContents | safe }}
+                                {% include entry.icon %}
                             {% endif %}
                             {{ entry.title }}
                         </a>

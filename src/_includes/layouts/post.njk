@@ -1,13 +1,14 @@
+--- 
+layout: layouts/base
+tmplClass: post 
 ---
-layout:  base.njk
-tmplClass: post
----
+
 <div class="content">
     <div class="bg"></div>
     <main>
         <article>
 
-            {% include "breadcrumb.njk" %}
+            {% include "partials/breadcrumb.njk" %}
 
             <h1>{{ title | heading | safe }}</h1>
             <p class="excerpt">{{ excerpt | safe }}</p>
@@ -22,10 +23,10 @@ tmplClass: post
             <div class="divider"></div>
 
             {% if toc %}
-            <div class="toc-container">
-                <h2>Tabla de contenidos</h2>
-                {{ content | toc | safe }}
-            </div>
+                <div class="toc-container">
+                    <h2>Tabla de contenidos</h2>
+                    {{ content | toc | safe }}
+                </div>
             {% endif %}
 
             <div class="content-article">
@@ -34,17 +35,17 @@ tmplClass: post
 
             <div class="tags">
                 {% for tag in tags %}
-                <a href="/tags/{{ tag | slug | url }}/"> 
-                    <span class="tag"> #{{ tag | slug }}</span>
-                </a>
+                    <a href="/tags/{{ tag | slug | url }}/">
+                        <span class="tag">
+                            #{{ tag | slug }}</span>
+                    </a>
                 {% endfor %}
             </div>
         </article>
 
-        <h2> Comentarios </h2>
+        <h2>
+            Comentarios
+        </h2>
         <div id="disqus_thread"></div>
     </main>
-
-    
-    
 </div>

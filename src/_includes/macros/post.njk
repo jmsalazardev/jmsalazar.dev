@@ -1,0 +1,20 @@
+
+{% macro card(link, title, image, tags) %}
+<div class="card">
+    <a href="{{ link | url }}">
+        <img src="{{ image }}&amp;class=thumbnail&amp;crop=center" alt="{{ title }}" />
+        <h2>{{ title | shortTitle }}</h2>
+        <p>{{ title | subtitle }}</p>
+    </a>
+    
+    <div class="tags">
+    {% for tag in tags  %}
+        <a href="/tags/{{ tag | slug | url }}/">
+            <span class="tag tag-sm tag-{{ tag }}">
+                #{{ tag | slug }}
+            </span>
+        </a>
+    {% endfor %}
+    </div>
+</div>
+{% endmacro %}

@@ -1,5 +1,5 @@
 ---
-layout: simple.njk
+layout: layouts/simple
 title: Contacto
 description: JMSalazar.dev provee contenido relacionado con la temática de desarrollo de software, programación e ingeniería de sistemas.
 date: 2022-04-05

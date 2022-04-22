@@ -1,0 +1,26 @@
+---
+layout: layouts/base
+tmplClass: posts
+---
+{% import "macros/post.njk" as post %}
+<div class="content">
+  <div class="bg"></div>
+  <main>
+
+    {% include "partials/breadcrumb.njk" %}
+    <h1>{{ title | heading | safe }}</h1>
+
+    {{ content | safe }}
+
+    <section class="grid">
+      {% for item in pagination.items | sort(attribute = 'time') %}
+        <div class="grid-item">
+            {{ post.card(item.url, item.data.title, item.data.image, item.data.tags ) }}
+        </div>
+      {% endfor %}
+    </section>
+
+    {% include "partials/pagination.njk" %}
+    
+  </main>
+</div>

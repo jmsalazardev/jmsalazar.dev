@@ -1,5 +1,5 @@
 ---
-layout: simple.njk
+layout: layouts/simple
 title: Contact me
 description: JMSalazar.dev provides content related to software development, programming and software engineering.
 date: 2022-04-05

@@ -1,7 +1,7 @@
 ---
 title: JMSalazarDev
 excerpt: A software engineer's blog
-layout: home.njk
+layout: layouts/home
 
 eleventyNavigation:
   key: en-home

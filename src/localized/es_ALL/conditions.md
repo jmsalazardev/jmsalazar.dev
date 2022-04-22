@@ -1,5 +1,5 @@
 ---
-layout: simple.njk
+layout: layouts/simple
 title: Condiciones del servicio
 description: Tienes dudas sobre el contenido de JMSalazar.dev? Conoce aquí las condiciones del servicio.
 date: 2022-04-05

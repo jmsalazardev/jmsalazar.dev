@@ -1,12 +1,12 @@
 ---
-layout: base.njk
+layout: layouts/base
 tmplClass: home
 ---
 <div class="content home">
   <div class="bg"></div>
   <main>
       
-      {% include "breadcrumb.njk" %}
+      {% include "partials/breadcrumb.njk" %}
       <h1>{{ title | heading | safe }}</h1>
 
       {{ content | safe}}
@@ -17,7 +17,7 @@ tmplClass: home
       <h2>Contenidos</h2>
       <div class="categories grid">
         {% for card in categoriesCards %}
-          {% include 'category-card.njk' %}
+          {% include "partials/category-card.njk" %}
         {% endfor %}
       </div>
       {% endif %}
@@ -27,7 +27,7 @@ tmplClass: home
       <div class="social list">
         {% for card in socialCards %}
         <div class="list-item">
-          {% include 'social-card.njk' %}
+          {% include "partials/social-card.njk" %}
         </div>
         {% endfor %}
       </div>

@@ -1,7 +1,6 @@
 const sass = require("sass");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
-const svgContents = require("eleventy-plugin-svg-contents");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const pluginPWA = require("11ty-plugin-pwa");
@@ -114,7 +113,6 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginTOC);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(svgContents);
 
   //#endregion
 
@@ -195,8 +193,7 @@ module.exports = (eleventyConfig) => {
     dir: {
       input: "src",
       output: "public",
-      includes: "_includes",
-      layouts: "_layouts"
+      includes: "_includes"
     },
   };
 };

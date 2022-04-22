@@ -1,0 +1,15 @@
+{% macro gtag(id) %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ id }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '{{ id }}');
+</script>
+{% endmacro %}
+
+{% macro ads(id) %}
+<script data-ad-client="{{ id }}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{% endmacro %}

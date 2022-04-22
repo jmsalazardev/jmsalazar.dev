@@ -2,19 +2,18 @@
     <nav class="pagination">
         <ol>
             <li class="previous">
-            {% if pagination.previousPageLink %}
+            {%- if pagination.previousPageLink -%}
                 <a href="{{ pagination.previousPageHref | url }}">
-                    <i class="icon-btn">{{ '/assets/svg/chevron-left.svg' | svgContents | safe }}</i>
-
+                    <i class="icon-btn">{% include 'svg/chevron-left.svg' %}</i>
                 </a>
-            {% endif %}
+            {%- endif -%}
             </li>
             <li class="next">
-            {% if pagination.nextPageLink %}
+            {%- if pagination.nextPageLink -%}
                 <a href="{{ pagination.nextPageHref | url }}">
-                    <i>{{ '/assets/svg/chevron-right.svg' | svgContents | safe }}</i>
+                    <i>{% include 'svg/chevron-left.svg' %}</i>
                 </a>
-            {% endif %}
+            {%- endif -%}
             </li>
         </ol>
     </nav>

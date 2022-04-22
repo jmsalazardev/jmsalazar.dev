@@ -1,5 +1,5 @@
 ---
-layout: simple.njk
+layout: layouts/simple
 title: Terms of service
 description: Do you have doubts about the content of JMSalazar.dev? Find out about the terms of service here.
 date: 2022-04-05

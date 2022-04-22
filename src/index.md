@@ -1,6 +1,6 @@
 ---
 title: JMSalazarDev
-layout: home.njk
+layout: layouts/home
 
 eleventyNavigation:
   key: root

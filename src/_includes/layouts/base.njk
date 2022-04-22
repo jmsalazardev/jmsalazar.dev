@@ -1,3 +1,5 @@
+{% import "macros/google.njk" as google %}
+
 <!DOCTYPE html>
 <html lang="{{ locale.lang }}" dir="{{ locale.dir }}">
     <head>
@@ -21,7 +23,6 @@
         
         <meta name="theme-color" content="#ffffff">
 
-
         <style>
             {{tmplClass | inlineCSS | cssmin | safe}}
         </style>
@@ -30,15 +31,20 @@
         {% if site.facebook.appId %}
         <meta property="fb:app_id" content="{{ site.facebook.appId }}" />
         {% endif %}
+       
+        {% if site.google.ads and tmplClass == 'post' %}
+        {{ google.ads( site.google.ads ) }}    
+        {% endif %}
 
-         {% include "ga.njk" %}
-         {% include "ads.njk" %}
+        {% if site.google.gtag %}
+        {{ google.gtag( site.google.gtag ) }}
+        {% endif %}
     </head>
     <body>
         <div class="container dark-theme {{ tmplClass }}">
-            {% include "header.njk" %}
+            {% include "partials/header.njk" %}
             {{ content | safe}}
-            {% include "footer.njk" %}
+            {% include "partials/footer.njk" %}
         </div>
         <script>
             const disqus_config = function () {
