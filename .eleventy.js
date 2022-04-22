@@ -1,5 +1,3 @@
-// https://jec.fyi/blog/setting-up-seo-and-google-analytics
-
 const sass = require("sass");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
@@ -12,27 +10,41 @@ const pluginManifest = require("@navillus/eleventy-plugin-manifest");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const compressor = require("node-minify");
-const dedent = require("dedent");
 const metadata = require("./src/_data/metadata.json");
 const site = require("./src/_data/site");
-
-const youtubeShortcode = require('./src/_11ty/shortcodes/youtube');
-
-const tagsCollection = require('./src/_11ty/collections/tags');
-const enPostsCollection = require('./src/_11ty/collections/enPosts');
-const esPostsCollection = require('./src/_11ty/collections/esPosts')
 
 const cssCleaner = new CleanCSS({});
 const cssMap = {};
 const jsMap = {};
 
-const imageTransform = require("./src/_transforms/image.transform");
-const readableDateFilter = require("./src/_11ty/filters/readable-date");
-const htmlDateStringFilter = require("./src/_11ty/filters/html-date-string");
-const headingFilter = require("./src/_11ty/filters/heading");
-const shortTitleFilter = require("./src/_11ty/filters/short-title");
-const subtitleFilter = require("./src/_11ty/filters/subtitle");
-const i18nFilter = require("./src/_11ty/filters/i18n");
+const collections = {
+  enPosts: require('./src/_11ty/collections/enPosts'),
+  esPosts: require('./src/_11ty/collections/esPosts'),
+  tags: require('./src/_11ty/collections/tags')
+};
+
+const filters = {
+  heading: require('./src/_11ty/filters/heading'),
+  htmlDateString: require('./src/_11ty/filters/html-date-string'),
+  i18n: require('./src/_11ty/filters/i18n'),
+  readableDate: require('./src/_11ty/filters/readable-date'),
+  shortTitle: require('./src/_11ty/filters/short-title'),
+  subtitle: require('./src/_11ty/filters/subtitle'),
+  cssmin: (code) => (cssCleaner.minify(code).styles),
+  toString: (value) => (JSON.stringify(value)),
+  inlineCSS: (tmplClass) => (cssMap[tmplClass] ?? ''),
+  inlineJS: (tmplClass) => (jsMap[tmplClass] ?? jsMap["main"])
+};
+
+const shortcodes = {
+  youtube: require('./src/_11ty/shortcodes/youtube')
+};
+
+const transforms = {
+  imagesResponsiver: require("./src/_11ty/transforms/image")
+};
+
+
 const { ELEVENTY_APP_ENV } = process.env;
 
 const isProduction = ELEVENTY_APP_ENV === 'production';
@@ -64,7 +76,6 @@ const compileSass = async (tmplClass) => new Promise((resolve) => {
 module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("src");
 
-  
   eleventyConfig.on("beforeBuild", async () => {
     await Promise.all([
       compileJS("main"),
@@ -107,62 +118,10 @@ module.exports = (eleventyConfig) => {
 
   //#endregion
 
-  //#region Transforms
 
-  eleventyConfig.addTransform("imagesResponsiver", imageTransform);
-
-  //#endregion
-
-  //#region Filters
-  eleventyConfig.addFilter("i18n", i18nFilter);
-  
-
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return cssCleaner.minify(code).styles;
-  });
-
-  eleventyConfig.addFilter("toString", function (value) {
-    return JSON.stringify(value);
-  });
-
-  eleventyConfig.addFilter("inlineCSS", (tmplClass) => {
-    return cssMap[tmplClass] ?? "";
-  });
-
-  eleventyConfig.addFilter("inlineJS", (tmplClass) => {
-    return jsMap[tmplClass] ?? jsMap["main"];
-  });
-
-  eleventyConfig.addFilter("htmlDateString", htmlDateStringFilter);
-
-  eleventyConfig.addFilter("heading", headingFilter);
-
-  eleventyConfig.addFilter("readableDate", readableDateFilter);
-
-  eleventyConfig.addFilter("shortTitle", shortTitleFilter);
-
-  eleventyConfig.addFilter("subtitle", subtitleFilter);
-  
-  //#endregion
-
-  //#region PassthroughCopy
-  eleventyConfig.addPassthroughCopy({
-    // "assets/icon": ".",
-  });
   eleventyConfig.addPassthroughCopy({
     "assets/.well-known": ".well-known",
   });
-
-  //#endregion
-
-  //#region Shortcode
-  
-
-  eleventyConfig.addShortcode("youtube", youtubeShortcode);
-
-  
-  //#endregion
-
 
   eleventyConfig.addLayoutAlias("tag", "layouts/tag.njk");
 
@@ -181,27 +140,29 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  eleventyConfig.addCollection("tags", tagsCollection);
+  for (let [key, collection] of Object.entries(collections)) {
+    eleventyConfig.addCollection(key, collection);
+  }
 
-  eleventyConfig.addCollection("posts_en", enPostsCollection);
+  for (let [key, shortcode] of Object.entries(shortcodes)) {
+    eleventyConfig.addShortcode(key, shortcode);
+  }
 
-  eleventyConfig.addCollection("posts_es", esPostsCollection);
+  for (let [key, filter] of Object.entries(filters)) {
+    eleventyConfig.addFilter(key, filter);
+  }
 
+  for (let [key, transform] of Object.entries(transforms)) {
+    eleventyConfig.addTransform(key, transform);
+  }
+  
+  
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function (err, browserSync) {
+      ready: (err, browserSync) => {
         const content_404 = fs.readFileSync("public/404.html");
-
-        browserSync.addMiddleware("*", (req, res) => {
-
-          if (req.url === '/') {
-            res.writeHead(302, {
-              location: '/es/'
-            });
-            return res.end();
-          }
-          
+        browserSync.addMiddleware("*", (req, res) => { 
           // Provides the 404 content without redirect.
           res.write(content_404);
           res.end();
