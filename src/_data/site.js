@@ -11,7 +11,7 @@ const manifest = {
   display: "standalone",
   orientation: "portrait",
   description: "Un blog de un desarrollador de software",
-  icon: "assets/favicon.png",
+  icon: "src/_assets/img/favicon.png",
   icons: [...helpers.appleIcons(), ...helpers.maskableIcons()]
 };
 
@@ -21,7 +21,7 @@ module.exports = {
   url: baseUrl,
   authorName: "José Miguel Salazar",
   authorUrl: "https://twitter.com/JMSalazarDev",
-  description: "Un blog de un desarrollador de software.",
+  description: "Un blog de desarrollo de software.",
   favicon: `${baseUrl}/favicon.ico`,
   google: {
     gtag: "G-KH7TX6T3E9"

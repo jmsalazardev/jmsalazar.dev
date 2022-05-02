@@ -81,7 +81,7 @@ module.exports = (content, outputPath) => {
 
       img = `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`;
 
-      return `<img data-width="${width}" data-height="${height}" data-src="${base}" src="${img}" alt="${alt}" class="lazy ${css}" width="${width}" height="${height}" /><noscript><img width="${width}" height="${height}" src="${base}=w${width}-h${height}" /></noscript>`;
+      return `<img x-ref="image" x-data="image" x-intersect.once="load" x-init="width=${width};height=${height}; src='${base}'" src="${img}" alt="${alt}" class="${css}" width="${width}" height="${height}" /><noscript><img width="${width}" height="${height}" src="${base}=w${width}-h${height}" /></noscript>`;
     }
   );
 };

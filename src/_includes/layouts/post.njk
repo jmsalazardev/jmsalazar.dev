@@ -1,51 +1,34 @@
---- 
-layout: layouts/base
-tmplClass: post 
+---
+layout: layouts/base 
+tmplClass: post
 ---
 
-<div class="content">
-    <div class="bg"></div>
-    <main>
-        <article>
+{% import "macros/post.njk" as post %}
 
-            {% include "partials/breadcrumb.njk" %}
+<main class="flex flex-wrap pt-24 px-4 mx-auto overflow-hidden shadow sm:w-10/12 md:w-10/12 lg:w-8/12">
+    {% include "partials/breadcrumb.njk" %}
+    <article class="w-full prose dark:prose-invert md:prose-lg lg:prose-xl">
+        <header class="pt-2">
+            <h1>{{ title }}</h1>
+            <p class="py-2">{{ excerpt }}</p>
+            <img class="object-cover w-full shadow-lg rounded-lg mb-6" src="{{ image }}&amp;class=thumbnail&amp;crop=center" alt="{{ title }}">
 
-            <h1>{{ title | heading | safe }}</h1>
-            <p class="excerpt">{{ excerpt | safe }}</p>
-
-            <img src="{{ image }}" alt="{{ title }}"/>
-
-            <ul class="info">
-                <li class="author">@{{author}}</li>
-                <li class="date">{{ date | readableDate }}</li>
-            </ul>
-
-            <div class="divider"></div>
-
-            {% if toc %}
-                <div class="toc-container">
-                    <h2>Tabla de contenidos</h2>
-                    {{ content | toc | safe }}
+            <div class="py-2">
+                <div class="flex items-center">
+                    <span class="mx-1 text-xs text-gray-600 dark:text-gray-300">{{date | readableDate}}</span>
+                    <span class="mx-1 text-xs text-gray-600 dark:text-gray-300">•</span>
+                    <span class="mx-1 text-xs text-gray-600 dark:text-gray-300">@{{ author }}</span>
                 </div>
-            {% endif %}
-
-            <div class="content-article">
-                {{ content | safe}}
             </div>
+        </header>
 
-            <div class="tags">
-                {% for tag in tags %}
-                    <a href="/tags/{{ tag | slug | url }}/">
-                        <span class="tag">
-                            #{{ tag | slug }}</span>
-                    </a>
-                {% endfor %}
-            </div>
-        </article>
+        <div class="post-content">
+            {%- if toc -%}
+                {{ content | toc({wrapper: 'nav', wrapperClass: 'toc', headingText: 'Contenidos', headingTag: 'h2'}) | safe }}
+            {%- endif -%}
+            {{ content | safe}}
+        </div>
 
-        <h2>
-            Comentarios
-        </h2>
-        <div id="disqus_thread"></div>
-    </main>
-</div>
+        <footer class="py-6" id="disqus_thread" x-data="comments" x-intersect.once="load"></footer>
+    </article>
+</main>

@@ -1,4 +1,6 @@
 {
   "layout": "layouts/post",
+  "type": "Article",
+  "tags": ["post"],
   "permalink": "{{ locale.lang }}/blog/{{slug}}/"
 }

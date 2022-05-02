@@ -3,24 +3,24 @@ layout: layouts/base
 tmplClass: posts
 ---
 {% import "macros/post.njk" as post %}
-<div class="content">
-  <div class="bg"></div>
-  <main>
+
+<main class="flex flex-col flex-wrap pt-24 px-4 mx-auto overflow-hidden shadow sm:w-10/12 md:w-10/12 lg:w-8/12">
 
     {% include "partials/breadcrumb.njk" %}
-    <h1>{{ title | heading | safe }}</h1>
+    <div class="w-full">
+      <h1 class="block mt-2 text-2xl font-semibold text-gray-800  dark:text-white">{{ title }}</h1>
+      <p class="py-2">{{  excerpt }}</p>
+      {{ content | safe }}
 
-    {{ content | safe }}
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+        {% for item in pagination.items | sort(attribute = 'time') %}
+          <li>
+              {{ post.card(item, locale) }}
+          </li>
+        {% endfor %}
+      </ul>
 
-    <section class="grid">
-      {% for item in pagination.items | sort(attribute = 'time') %}
-        <div class="grid-item">
-            {{ post.card(item.url, item.data.title, item.data.image, item.data.tags ) }}
-        </div>
-      {% endfor %}
-    </section>
-
-    {% include "partials/pagination.njk" %}
+      {% include "partials/pagination.njk" %}
+    </div>
     
-  </main>
-</div>
+</main>

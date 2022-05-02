@@ -1,7 +1,7 @@
 {% import "macros/google.njk" as google %}
 
 <!DOCTYPE html>
-<html lang="{{ locale.lang }}" dir="{{ locale.dir }}">
+<html lang="{{ locale.lang }}" dir="{{ locale.dir }}" class="h-full bg-gray-100">
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='x-ua-compatible' content='ie=edge'>
@@ -23,9 +23,7 @@
         
         <meta name="theme-color" content="#ffffff">
 
-        <style>
-            {{tmplClass | inlineCSS | cssmin | safe}}
-        </style>
+       
 
         {% seo "" %}
         {% if site.facebook.appId %}
@@ -39,19 +37,42 @@
         {% if site.google.gtag %}
         {{ google.gtag( site.google.gtag ) }}
         {% endif %}
+
+    
+        {% set css %}
+        {% include "assets/bundle.css" %}
+        {% endset %}
+        <style>
+        {{ css | safe }}
+        </style>
+
+       
+
     </head>
-    <body>
-        <div class="container dark-theme {{ tmplClass }}">
-            {% include "partials/header.njk" %}
-            {{ content | safe}}
-            {% include "partials/footer.njk" %}
+    <body class="bg-white dark:bg-gray-900">
+        {% include "partials/navigation.njk" %}
+       
+        <div class="container mx-auto mb-24">
+            {{ content | safe}}   
         </div>
+
+        {% include "partials/footer.njk" %}
+
+        
+
+         <!-- capture the JS content as a Nunjucks variable -->
+        {% set js %}
+        {% include "assets/bundle.js" %}
+        {% endset %}
+        <!-- feed it through our jsmin filter to minify -->
         <script>
-            const disqus_config = function () {
-                this.page.url = "{{ site.url }}{{ page.url }}";
-                this.page.identifier = "{{ page.url | slug }}";
-            };
-            {{tmplClass | inlineJS | safe}}
+        const disqus_config = () => {
+            this.page.url = "{{ site.url }}{{ page.url }}";
+            this.page.identifier = "{{ page.url | slug }}";
+        };
+        
+        {{ js | safe }}
         </script>
+
     </body>
 </html>

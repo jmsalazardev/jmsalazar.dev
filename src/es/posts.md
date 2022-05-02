@@ -2,17 +2,15 @@
 layout: layouts/posts
 eleventyNavigation:
   parent: es-home
-  key: es-posts
-  title: Posts
+  key: es-blog
+  title: Blog
   order: 1
-  icon: svg/articles.svg
-title: Posts
+title: Blog
 description: Publicaciones de JMSalazarDev
-image: https://lh3.googleusercontent.com/SuXAx00qCZZpQj-HnsoReQxK5lqOnqH4QMFOURnaSqMQef243MxCs_Cs6WzlrlMZeQectdWnY1gv9zDydaA#width=1280&height=400
 
 pagination:
   data: collections.esPosts
-  size: 24
+  size: 2
   alias: posts
 permalink: /{{ locale.lang }}/blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}
 

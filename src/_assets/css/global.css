@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .change {
+        color: black;
+    }
+}
+
+@layer components {
+  .avatar {
+    @apply object-cover h-10 w-10 rounded-full;
+  }
+
+ 
+  .toc ol {
+    @apply list-disc;
+  }
+
+  .post-content img {
+    @apply w-full shadow-lg rounded-lg mb-6;
+  }
+
+}

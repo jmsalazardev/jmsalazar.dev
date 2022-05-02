@@ -1,0 +1,15 @@
+---
+layout: layouts/tags
+pagination:
+    data: collections.enTags
+    size: 1
+    alias: tag
+permalink: /en/tags/{{ tag | slug }}/
+eleventyComputed:
+  title: Tag “{{ tag }}”
+eleventyNavigation:
+  parent: en-tags
+  key: en-tags-{{ tag }}
+  title: {{ tag }}
+  order: 3
+---

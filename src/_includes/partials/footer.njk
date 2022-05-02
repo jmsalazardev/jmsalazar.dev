@@ -1,33 +1,23 @@
-<footer>
-    <div class="footer-container">
-        <nav>
-            {%- for entry in collections.all | eleventyNavigation(locale.lang + "-home")  %}
-                <a href="{{ entry.url | url }}">
-                    <span>{{ entry.title}}</span>
-                </a>
-            {%- endfor %}
-            <a href="/contact/" title="{{ 'footer.contact' | i18n(locale) }}" rel="noopener">{{ 'footer.contact' | i18n(locale) }}</a>
-            <a href="/conditions/" title="{{ 'footer.conditions' | i18n(locale) }}" rel="noopener">{{ 'footer.conditions' | i18n(locale) }}</a>
-            <a href="/privacy-policy/" title="{{ 'footer.privacyPolicy' | i18n(locale) }}" rel="noopener">{{ 'footer.privacyPolicy' | i18n(locale) }}</a>
-        </nav>
-
-        <div class="social-media">
-            {% for name, item in metadata.links %}
-                {% set icon = 'svg/' + name + '.svg' %}
-                <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener" class="{{ name }}">
-                    <i class="{{name}}">{% include icon %}</i>
-                </a>
-            {% endfor %}
-
-        </div>
-
-        <hr class="divider" />
-
-        <p class="description">
-            <a href="/">{{ metadata.title }}</a>– {{ metadata.description }}
-        </p>
-
-        Copyright © {{ helpers.currentYear() }}
+<footer class="text-center text-white bg-gray-50 ">
+ 
+    <div class="flex justify-center pt-9 mb-9">
+        {%- for name, item in metadata.links -%}
+        {%- set icon = "/src/_includes/svg/" + name + ".svg" -%}
+        <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener"  class="mr-9 text-gray-800">
+            {{ icon | svgContents("inline w-5") | safe }}
+        </a>
+    {%- endfor -%}
     </div>
 
+    <div class="flex flex-col text-white bg-gray-700 p-4" >
+        <div class="flex-1" >
+            <a href="{{ site.url }}">{{ site.name }}</a>– {{ site.description }}
+        </div>
+
+        <div class="flex-1" >
+        Copyright © {{ helpers.currentYear() }}
+        </div>
+    </div>
+    
+ 
 </footer>

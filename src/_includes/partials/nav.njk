@@ -1,0 +1,16 @@
+{% set navPages = collections.all | eleventyNavigation(locale.lang + "-home") %}
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="md:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {%- for entry in navPages %}
+        {%- if entry.key == page.collection -%}
+          <a href="{{ entry.url | url }}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">{{ entry.title }}</a>
+        {%- else -%}
+          <a href="{{ entry.url | url }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ entry.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</nav>

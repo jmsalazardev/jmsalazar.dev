@@ -2,35 +2,11 @@
 layout: layouts/base
 tmplClass: home
 ---
-<div class="content home">
-  <div class="bg"></div>
-  <main>
-      
-      {% include "partials/breadcrumb.njk" %}
-      <h1>{{ title | heading | safe }}</h1>
+<main class="flex flex-wrap pt-24 px-4 mx-auto overflow-hidden shadow sm:w-10/12 md:w-10/12 lg:w-8/12">
+  <article class="w-full prose dark:prose-invert md:prose-lg lg:prose-xl">
+        
+          {{ content | safe}}
 
-      {{ content | safe}}
-
-      <a href="/{{ locale.lang }}/blog/" class="btn btn-yellow">{{ "common.contents" | i18n(locale) }}</a>
-
-      {% if categoriesCards  %}
-      <h2>Contenidos</h2>
-      <div class="categories grid">
-        {% for card in categoriesCards %}
-          {% include "partials/category-card.njk" %}
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {% if socialCards  %}
-      <h2>Redes Sociales</h2>
-      <div class="social list">
-        {% for card in socialCards %}
-        <div class="list-item">
-          {% include "partials/social-card.njk" %}
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-  </main>
-</div>
+          <a href="/{{ locale.lang }}/blog/" class="btn btn-yellow">{{ "common.contents" | i18n(locale) }}</a>  
+  </article>
+</main>

@@ -5,10 +5,9 @@ eleventyNavigation:
   key: en-posts
   title: Posts
   order: 1
-  icon: svg/articles.svg
+  icon: /src/_includes/svg/articles.svg
 title: Posts
 description: Publicaciones de JMSalazarDev
-image: https://lh3.googleusercontent.com/SuXAx00qCZZpQj-HnsoReQxK5lqOnqH4QMFOURnaSqMQef243MxCs_Cs6WzlrlMZeQectdWnY1gv9zDydaA#width=1280&height=400
 
 pagination:
   data: collections.enPosts

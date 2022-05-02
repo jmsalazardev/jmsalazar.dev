@@ -2,57 +2,31 @@
 layout: layouts/base
 tmplClass: tags
 ---
+{% import "macros/post.njk" as post %}
 
-<div class="content">
-  <div class="bg"></div>
-  <main>
+<main class="flex flex-col flex-wrap pt-24 px-4 mx-auto overflow-hidden shadow sm:w-10/12 md:w-10/12 lg:w-8/12">
 
     {% include "partials/breadcrumb.njk" %}
-    <h1>{{ title | heading | safe }}</h1>
+    <div class="w-full py-4">
+      <h1 class="block mt-2 text-2xl font-semibold text-gray-800  dark:text-white">{{ title }}</h1>
+      <p class="py-2">{{  excerpt }}</p>
+      {{ content | safe }}
 
-    {{ content | safe }}
-
-    <section class="cards">
-      {% for post in pagination.items | sort(attribute = 'time') %}
-        <article class="card">
-          <a href="{{ post.url | url }}" title="{{ post.data.title }}">
-
-            <div class="box-cover">
-              <img src="{{ post.data.image }}&amp;class=thumbnail&amp;crop=center" alt="{{ post.data.title }}"/>
-              {% if post.data.award %}
-                <span class="award">
-                  {% include 'svg/award.svg' %}
+      <ul class="grid grid-cols-3 gap-4">
+        {% for item in collections[collection]| sort(attribute = 'time') %}
+          <li>
+              
+            {% set tagUrl %}/{{ locale.lang}}/tags/{{ item }}/{% endset %}
+            <a href="{{ tagUrl | url }}">
+                <span class="rounded-md bg-gray-500  text-slate-100 font-bold my-1 mx-4 py-1 px-4">
+                  #{{ item }}
                 </span>
-              {% endif %}
-            </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
 
-            <!--<img src="{{ post.data.image }}" alt="{{ post.data.title }}"/>-->
-
-            <h2>{{ post.data.title | heading | safe }}</h2>
-            {% if post.data.data.excerpt %}
-              <p>{{ post.data.data.excerpt |  safe }}</p>
-            {% endif %}
-
-            <div class="card-footer">
-              {% if post.data.tags %}
-                <div class="tags">
-                  {% for tag in post.data.tags %}
-                    <a href="/tags/{{ tag }}/">
-                      <span class="tag tag-sm tag-{{ tag }}">
-                        #{{ tag }}
-                      </span>
-                    </a>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </div>
-
-          </a>
-        </article>
-      {% endfor %}
-    </section>
-
-    {% include "partials/pagination.njk" %}
-
-  </main>
-</div>
+      {% include "partials/pagination.njk" %}
+    </div>
+    
+</main>
