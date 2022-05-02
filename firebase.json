@@ -19,11 +19,11 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "script-src https://jmsalazar.dev *.disqus.com *.google-analytics.com *.google.com *.googleapis.com"
+            "value": "script-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.google.com *.googleapis.com"
           },
           {
             "key": "Content-Security-Policy",
-            "value": "style-src https://jmsalazar.dev *.disqus.com *.google.com *.googleapis.com *.googleadservices.com"
+            "value": "style-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google.com *.googleapis.com *.googleadservices.com"
           },
           {
             "key": "Content-Security-Policy",
@@ -35,7 +35,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "connect-src https://jmsalazar.dev *.disqus.com *.google-analytics.com *.analytics.google.com"
+            "value": "connect-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.analytics.google.com"
           }
         ]
       }
