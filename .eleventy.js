@@ -33,6 +33,7 @@ const filters = {
   subtitle: require('./src/_11ty/filters/subtitle'),
   cssmin: (code) => (cssCleaner.minify(code).styles),
   toString: (value) => (JSON.stringify(value)),
+  btoa: (value) => (btoa(value)),
   // inlineCSS: (tmplClass) => (cssMap[tmplClass] ?? ''),
   // inlineJS: (tmplClass) => (jsMap[tmplClass] ?? jsMap["main"])
 };
