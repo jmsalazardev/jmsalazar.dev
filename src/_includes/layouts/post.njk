@@ -3,8 +3,6 @@ layout: layouts/base
 tmplClass: post
 ---
 
-{% import "macros/post.njk" as post %}
-
 <main class="flex flex-wrap pt-24 px-4 mx-auto overflow-hidden shadow sm:w-10/12 md:w-10/12 lg:w-8/12">
     {% include "partials/breadcrumb.njk" %}
     <article class="w-full prose dark:prose-invert md:prose-lg lg:prose-xl">
@@ -28,7 +26,8 @@ tmplClass: post
             {%- endif -%}
             {{ content | safe}}
         </div>
+        
+        <footer class="py-6" x-data="comments" x-intersect.once="load" x-init="url='{{ site.url }}{{ page.url }}';id='{{ page.url | slug }}'"></footer>
 
-        <footer class="py-6" id="disqus_thread" x-data="comments" x-intersect.once="load"></footer>
     </article>
 </main>

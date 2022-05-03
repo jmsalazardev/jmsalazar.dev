@@ -26,5 +26,18 @@ module.exports = {
   google: {
     gtag: "G-KH7TX6T3E9"
   },
+  comments: {
+    // disqus:
+    //  src: "https://jmsalazardev.disqus.com/embed.js",
+    //    
+    // utterances: 
+    repo: "jmsalazardev/comments",
+    theme: "github-light",
+    'issue-term': '{url}',
+    src: "https://utteranc.es/client.js",
+    crossorigin: 'anonymous',
+    async: true,
+  },
+
   manifest
 };

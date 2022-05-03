@@ -1,0 +1,19 @@
+{% if site.comments.utterances %}
+    <footer 
+        class="py-6" 
+        x-data="utterances" 
+        x-intersect.once="load" 
+        x-init="issueTerm='{{ page.url }}'; repo='{{ site.comments.utterances.repo }}'; theme='{{ site.comments.utterances.theme }}'"
+    ></footer>
+
+{% endif %}
+
+{% if site.comments.disqus %}
+    <footer 
+        class="py-6" 
+        x-data="disqus" 
+        x-intersect.once="load" 
+        x-init="site='{{site.comments.disqus.site}}';url='{{ site.url }}{{ page.url }}'; identifier='{{ page.url | slug }}';'"
+    ></footer>
+
+{% endif %}

@@ -66,12 +66,7 @@
         {% endset %}
         <!-- feed it through our jsmin filter to minify -->
         <script>
-        const disqus_config = () => {
-            this.page.url = "{{ site.url }}{{ page.url }}";
-            this.page.identifier = "{{ page.url | slug }}";
-        };
-        
-        {{ js | safe }}
+            {{ js | safe }}
         </script>
 
     </body>
