@@ -2926,10 +2926,9 @@ function comments (Alpine) {
             const { url, id } = this;
 
             const script = document.createElement("script");
-            const config = JSON.parse('{{site.comments | toString | safe }}');
+            const config = JSON.parse(`{{site.comments | toString | safe }}`);
             for (const [key, value] of Object.entries(config)) {
                 let newValue = typeof value === 'string' ? value.replace('{url}', this.url).replace('{id}', this.id) : value;
-                console.log(key, newValue);
                 script.setAttribute(key, newValue);
             }
 

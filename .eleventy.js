@@ -49,15 +49,9 @@ const transforms = {
   htmlMinifier: require("./src/_11ty/transforms/html-minifier")
 };
 
-
-const { ELEVENTY_APP_ENV } = process.env;
-
-const isProduction = ELEVENTY_APP_ENV === 'production';
-
 module.exports = (eleventyConfig) => {
+  eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addWatchTarget("src");
-  
-
 
   //#region Plugins
 
@@ -75,11 +69,11 @@ module.exports = (eleventyConfig) => {
     }
   });
 
-  
+
   // eleventyConfig.addPlugin(pluginCSS);
 
   eleventyConfig.addPlugin(svgContents);
-  
+
   eleventyConfig.addPlugin(pluginManifest, site.manifest);
 
   eleventyConfig.addPlugin(pluginPWA, {
@@ -106,7 +100,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
   });
-  
+
   eleventyConfig.addPassthroughCopy({
     'src/_assets/.well-known': '.well-known',
   });
