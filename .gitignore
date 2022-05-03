@@ -19,7 +19,7 @@ node_modules/
 
 # Generated files
 public/*
-
+src/_includes/assets/*
 # Ignore folders from source code editors
 .vscode/*
 !.vscode/settings.json
