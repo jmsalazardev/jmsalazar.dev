@@ -28,16 +28,7 @@
         {% seo "" %}
         {% if site.facebook.appId %}
         <meta property="fb:app_id" content="{{ site.facebook.appId }}" />
-        {% endif %}
-       
-        {% if site.google.ads and tmplClass == 'post' %}
-        {{ google.ads( site.google.ads ) }}    
-        {% endif %}
-
-        {% if site.google.gtag %}
-        {{ google.gtag( site.google.gtag ) }}
-        {% endif %}
-
+        {% endif %}       
     
         {% set css %}
         {% include "assets/bundle.css" %}
@@ -50,6 +41,8 @@
 
     </head>
     <body class="bg-white dark:bg-gray-900">
+        <div x-data="gtag"></div>
+        
         {% include "partials/navigation.njk" %}
        
         <div class="container mx-auto mb-24">

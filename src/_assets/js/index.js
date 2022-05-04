@@ -2,14 +2,12 @@ import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect'
 import navigation from './components/navigation';
 import comments from './components/comments';
-// import disqus from './components/disqus';
-// import utterances from './components/utterances';
+import gtag from './components/gtag';
 import image from './components/image';
 
 Alpine.plugin(intersect);
 Alpine.plugin(navigation);
-// Alpine.plugin(disqus);
-// Alpine.plugin(utterances);
+Alpine.plugin(gtag);
 Alpine.plugin(comments);
 Alpine.plugin(image);
 

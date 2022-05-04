@@ -23,8 +23,10 @@ module.exports = {
   authorUrl: "https://twitter.com/JMSalazarDev",
   description: "Un blog de desarrollo de software.",
   favicon: `${baseUrl}/favicon.ico`,
-  google: {
-    gtag: "G-KH7TX6T3E9"
+  gtag: {
+    src: 'https://www.googletagmanager.com/gtag/js?id={id}',
+    hosts: ['jmsalazar.dev'],
+    configs: ['G-KH7TX6T3E9']
   },
   comments: {
     // disqus:
