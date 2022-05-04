@@ -20,14 +20,14 @@ export default function (Alpine) {
             const script = document.createElement("script");
             script.setAttribute('src', src);
             script.setAttribute('async', true);
+            script.onload = () => {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                config.configs.forEach((id) => gtag('config', id));
+            };
 
             (document.head || document.body).appendChild(script);
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            // load multiple products defined site.gtag.configs
-            config.configs.forEach((id) => gtag('config', id));
         },
     }));
 }
