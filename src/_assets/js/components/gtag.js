@@ -27,7 +27,9 @@ export default function (Alpine) {
                 config.configs.forEach((id) => gtag('config', id));
             };
 
-            (document.head || document.body).appendChild(script);
+            setTimeout(() => {
+                (document.head || document.body).appendChild(script);
+            }, config.delay || 0);
         },
     }));
 }

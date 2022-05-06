@@ -26,7 +26,8 @@ module.exports = {
   gtag: {
     src: 'https://www.googletagmanager.com/gtag/js?id={id}',
     hosts: ['jmsalazar.dev', '10.192.0.108'],
-    configs: ['G-KH7TX6T3E9']
+    configs: ['G-KH7TX6T3E9'],
+    delay: 1000,
   },
   comments: {
     // disqus:
