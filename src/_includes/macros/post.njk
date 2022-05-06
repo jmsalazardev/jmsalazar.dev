@@ -1,7 +1,7 @@
 {% macro card(post, locale) %}
     
    <div class="max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <img class="object-cover w-full h-64" src="{{ post.data.image }}&amp;class=thumbnail&amp;crop=center" alt="{{ post.title }}">
+        <img class="object-cover w-full h-48 md:h-64" src="{{ post.data.image }}&amp;class=object-cover w-full h-64 md:h-48&amp;crop=center" alt="{{ post.title }}">
 
         <div class="p-6">
             <div>

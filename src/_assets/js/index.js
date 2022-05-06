@@ -4,8 +4,10 @@ import navigation from './components/navigation';
 import comments from './components/comments';
 import gtag from './components/gtag';
 import image from './components/image';
+import drawer from './components/drawer';
 
 Alpine.plugin(intersect);
+Alpine.plugin(drawer);
 Alpine.plugin(navigation);
 Alpine.plugin(gtag);
 Alpine.plugin(comments);
@@ -13,6 +15,11 @@ Alpine.plugin(image);
 
 window.Alpine = Alpine;
 window.Alpine.start();
+
+
+
+
+
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker

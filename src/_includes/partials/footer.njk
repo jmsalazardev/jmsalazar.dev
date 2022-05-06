@@ -1,17 +1,24 @@
-<footer class="text-center text-white bg-gray-50 ">
- 
-    <div class="flex justify-center pt-9 mb-9">
-        {%- for name, item in metadata.links -%}
-        {%- set icon = "/src/_includes/svg/" + name + ".svg" -%}
-        <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener"  class="mr-9 text-gray-800">
-            {{ icon | svgContents("inline w-5") | safe }}
-        </a>
-    {%- endfor -%}
-    </div>
 
-    <div class="flex flex-col text-white bg-gray-700 p-4" >
+<footer class="flex-auto text-center text-gray-700 dark:text-gray-100 dark:bg-gray-900
+border-t border-slate-900/10 dark:border-slate-300/10
+ ">
+    <nav class="flex justify-center pt-9 mb-9">
+        <ul class="flex list-none">
+        {%- for name, item in metadata.links -%}
+            <li>
+                {%- set icon = "/src/_includes/svg/" + name + ".svg" -%}
+                <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener"  class="mr-9 w-full text-gray-700 dark:text-gray-100">
+                    {{ icon | svgContents("inline w-5 ") | safe }}
+                </a>
+            </li>
+         {%- endfor -%}
+        </ul>
+   
+    </nav>
+
+    <div class="flex flex-col " >
         <div class="flex-1" >
-            <a href="{{ site.url }}">{{ site.name }}</a>– {{ site.description }}
+            <a href="{{ site.url }}" >{{ site.name }}</a>– {{ site.description }}
         </div>
 
         <div class="flex-1" >

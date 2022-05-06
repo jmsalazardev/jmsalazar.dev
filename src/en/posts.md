@@ -5,7 +5,7 @@ eleventyNavigation:
   key: en-posts
   title: Posts
   order: 1
-  icon: /src/_includes/svg/articles.svg
+  icon: blog
 title: Posts
 description: Publicaciones de JMSalazarDev
 

@@ -2,12 +2,13 @@
 title: 5 Razones por las qué deberías Aprender Programación
 slug: 5-razones-aprender-programacion
 excerpt: Programar es una habilidad increíblemente valiosa que te permitirá mejorar enormemente tus actuales condiciones de trabajo.
-image: https://lh3.googleusercontent.com/ABLxwHhfgQnG1ua1_v93cfijtJfX_Mgbw9pzy-sGDxcGAWZJ_7A3XdaAbCDX6DBxkHVKDwDUrOw7FipKZ1afbC57TPCNTJHYY69hbVBflFUrlib7P0jKmKN0ZI38NPoa8Q-UBlAB#width=1280&height=720
+image: https://lh3.googleusercontent.com/Etun_zU6wpawIm7Hk7nzD7vGE8e3XpSlUAYVgO5lyJiSg0EUpFPNV04IzRUewiHCD4Yto3luTSKWPV1U699-eYUE2jPiu0YPqZuIADDgimZ8-1UvfQ4EqyQhaIcaKLTT5Ie9eyE3DY0#width=4898&height=2755
+
 date: 2022-04-12T00:00:00.000+01:00
 tags:
     - opinion
 toc: true
-author: JMSalazarDev
+author: jmsalazardev
 alternate:
     - type: lang
       hreflang: en
@@ -21,7 +22,7 @@ Prácticamente todo aparato electrónico necesita de cierto software para funcio
 
 Estos te permiten hacer una infinidad de cosas, como pedir comida, sacar fotos de tu mascota, ver videos y un largo etcétera.
 
-![dispositivos iphone mac ipad sobre una mesa](https://lh3.googleusercontent.com/AKMEl1calEw5oQWI55bJczmRBCUMra4Fo2pmtT6y2D9ue3P3teKaYzI2kXwKtQRpo8qL9KNIbHU3h1ZBwfccWUGpX7ev5WnIXFGddZG-_nHPJKWXZ65xGNZzdZd5tgBnqTXZsx1H#width=4928&height=2809 "Dispositivos")
+![dispositivos iphone mac ipad sobre una mesa](https://lh3.googleusercontent.com/AKMEl1calEw5oQWI55bJczmRBCUMra4Fo2pmtT6y2D9ue3P3teKaYzI2kXwKtQRpo8qL9KNIbHU3h1ZBwfccWUGpX7ev5WnIXFGddZG-_nHPJKWXZ65xGNZzdZd5tgBnqTXZsx1H#width=4928&height=2809&className=asdf,qwerty "Dispositivos")
 
 
 Tu smartphone y sus aplicaciones no funcionan por sí solas, hay millones de líneas de código fuente detrás de estas, escritas por miles de desarrolladores de software alrededor del mundo.

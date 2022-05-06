@@ -2,7 +2,7 @@
 {% if eleventyNavigation %}
 
 {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: false }) %}
-<nav class="rounded-md w-full flex" aria-label="Breadcrumb">
+<nav class="not-prose py-4" aria-label="Breadcrumb">
   <ol class="inline-flex items-center space-x-1 md:space-x-3">
    {%- for entry in navPages %}  
 

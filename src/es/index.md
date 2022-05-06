@@ -6,7 +6,7 @@ eleventyNavigation:
   key: es-home
   title: Home
   order: 1
-#  icon: ./assets/svg/home.svg
+  icon: home
 ---
 
 Hola 👋 Mi nombre es José Miguel Salazar
@@ -23,3 +23,5 @@ He estado trabajando como desarrollador de software por mas de 15 años tanto co
 * 🧠  Estoy aprendiendo neerlandés e ingles.
 * 🤝  Estoy abierto a colaborar en proyextos Javascript en general.
 * ⚡  Padre, Blogger y estoy en constante aprendizaje.
+
+

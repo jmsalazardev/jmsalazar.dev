@@ -17,7 +17,7 @@ const manifest = {
 
 module.exports = {
   buildTime: new Date(),
-  name: "JMSalazarDev",
+  name: "JMSalazar.dev",
   url: baseUrl,
   authorName: "José Miguel Salazar",
   authorUrl: "https://twitter.com/JMSalazarDev",
@@ -25,7 +25,7 @@ module.exports = {
   favicon: `${baseUrl}/favicon.ico`,
   gtag: {
     src: 'https://www.googletagmanager.com/gtag/js?id={id}',
-    hosts: ['jmsalazar.dev'],
+    hosts: ['jmsalazar.dev', '10.192.0.108'],
     configs: ['G-KH7TX6T3E9']
   },
   comments: {

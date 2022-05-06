@@ -1,87 +1,58 @@
 const queryString = require("query-string");
+const cheerio = require('cheerio');
+
+
 
 module.exports = (content, outputPath) => {
   if (!outputPath.endsWith(".html")) {
     return content;
   }
 
-  return content.replace(
-    /<img\s+[^>]*src="([^"]*)"\s+[^>]*alt="([^"]*)"[^>]*>/gi,
-    function ($0, src, alt) {
-      var [base, hash] = src.split("#");
-      var [base, params] = base.split("=");
-      var css = "responsive";
-      let height = 0;
-      let width = 360;
-      let crop = "square";
-
-      if (hash) {
-        hash = `${hash}`.replace(/&amp;/g, "&");
-
-        hash = queryString.parse(hash, {
-          parseBooleans: true,
-          parseNumbers: true,
-        });
-
-        if (hash["class"]) {
-          css = `${hash["class"]}`.split(",").join(" ");
-        }
-
-        if ("height" in hash) {
-          height = parseInt(hash.height, 10);
-        }
-
-        if ("width" in hash) {
-          width = parseInt(hash.width, 10);
-        }
-
-        if ("crop" in hash) {
-          crop = hash.crop;
-        }
-      }
-
-      let newWidth = 360;
-      let newHeight = 0;
-      let aspectRatio = 0;
-      if (width > height) {
-        aspectRatio = width / height;
-        newHeight = Math.round(newWidth / aspectRatio);
-      } else if (height > width) {
-        aspectRatio = height / width;
-        newHeight = Math.round(newWidth * aspectRatio);
-      } else {
-        newHeight = newWidth;
-      }
-
-      img = base;
-      if (img.startsWith("https://lh3.googleusercontent.com")) {
-        let cropping = "";
-        if (crop === "square") {
-          cropping = "-c";
-        } else if (crop === "smart") {
-          cropping = "-p";
-        }
-
-        img = `${img}=w${newWidth}-h${newHeight}-rw${cropping}`;
-      } else if (img.startsWith("https://blogger.googleusercontent.com")) {
-        let cropping = "";
-        if (crop === "square") {
-          cropping = "-c";
-        } else if (crop === "smart") {
-          cropping = "-p";
-        }
-        const url = new URL(img);
-        const parts = url.pathname.split('/');
-        parts[parts.length - 2] = `${img}=w${newWidth}-h${newHeight}-rw${cropping}`;
-        url.pathname = parts.join('/');
-        url.hash = '';
-
-        img = url.toString();
-      }
-
-      img = `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`;
-
-      return `<img x-ref="image" x-data="image" x-intersect.once="load" x-init="width=${width};height=${height}; src='${base}'" src="${img}" alt="${alt}" class="${css}" width="${width}" height="${height}" /><noscript><img width="${width}" height="${height}" src="${base}=w${width}-h${height}" /></noscript>`;
+  const $ = cheerio.load(content);
+  $('img').each(function () {
+    const src = $(this).attr('src');
+    if(src === '') return;
+    let url;
+    try {
+      url = new URL(src);  
+    } catch (error) {
+      console.log(src, error)
+      return;
     }
-  );
+    
+    if (url.hostname === 'lh3.googleusercontent.com') {
+      const { origin, pathname, search, hash } = url;
+      
+      const parsed = queryString.parse(hash.slice(1), {parseNumbers: true, parseBooleans: true});
+      
+      const {width, height, className, crop } = parsed;
+
+      const empty = `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`;
+
+      const newSrc = `${origin}${pathname}${search}`;
+      $(this)
+        .attr('x-data', 'image')
+        .attr('x-ref', 'image')
+        .attr('x-intersect.once', 'load')
+        .attr('x-init', `width=${width};height=${height}; src='${newSrc}';`)
+        .attr('width', width)
+        .attr('height', height)
+        .attr('src', empty);
+        
+        if(className) {
+          const items = className.split(',');
+          const classAttr = $(this).attr('class') || '';
+          const classList = classAttr === '' ? [] : classAttr.split(' ');
+
+          const newItems = items.filter(item => !classList.includes(item));
+          classList.push(...newItems);
+          $(this).attr('class', classList.join(' '));
+          
+        }
+    }
+
+  })
+  
+  return $.html();
+
 };

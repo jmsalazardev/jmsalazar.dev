@@ -13,6 +13,7 @@ export default function (Alpine) {
             const img = this.$refs.image;
             const {src, width, height} = this;
             
+            
             const url = new URL(src);
 
             let dpr = 1;
@@ -37,7 +38,7 @@ export default function (Alpine) {
 
             img.setAttribute("width", newWidth);
             img.setAttribute("height", newHeight);
-            img.classList.add('lazyloaded');
+            // img.classList.add('lazyloaded');
 
             if (url.host === 'lh3.googleusercontent.com') {
                 img.src = `${src}=w${newWidth}-h${newHeight}-rw-c`;

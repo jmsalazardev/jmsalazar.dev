@@ -1,0 +1,18 @@
+{
+    "jmsalazardev": {
+        "name": "José Miguel Salazar",
+        "avatar": "https://lh3.googleusercontent.com/4dYmIReYSw1HI330UTdfyRRZlCEAHecRl339u4BwtjenT9RbG4msT92ldYopbJk2xlOMiYXnOcVv4UWUjEVj_NMvEVQ81qR1vbX6vlHQmQ11e6lkDq4l_KM3ApH22Z7eV6FiUni3xxY",
+        "links": [
+            {
+                "label": "Twitter",
+                "link": "https://twitter.com/jmsalazardev",
+                "icon": "twitter"
+            },
+            {
+                "label": "Github",
+                "link": "https://github.com/jmsalazardev",
+                "icon": "github"
+            }
+        ]
+    }
+}
