@@ -4,16 +4,23 @@ layout: layouts/home
 
 eleventyNavigation:
   key: es-home
-  title: Home
+  title: Inicio
   order: 1
-#  icon: ./assets/svg/home.svg
+  icon: home
 ---
 
-👋 Hola, soy @jmsalazardev.
 
-👀 Estoy interesado en Desarrollo Web en general.
+Hola 👋 Mi nombre es José Miguel Salazar
+========================================
 
-📖 Actualmente estoy aprendiendo neerlandés e inglés.
+Ingeniero de Software
+---------------------
 
-📫 Puedes contactarme vía [twitter](https://twitter.com/jmsalazardev)
+He estado trabajando como desarrollador de software por mas de 15 años tanto como en frontend como en backend.
 
+* 🌍  Actualmente estoy en los Países Bajos.
+* ✉️  Puedes contactarme a mi correo [contact@jmsalazar.dev](mailto:contact@jmsalazar.dev).
+* 🚀  Actualmente estoy trabajando en [Mi Blog](http://jmsalazar.dev).
+* 🧠  Estoy aprendiendo neerlandés e ingles.
+* 🤝  Estoy abierto a colaborar en proyextos Javascript en general.
+* ⚡  Padre, Blogger y estoy en constante aprendizaje.

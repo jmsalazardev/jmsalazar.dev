@@ -4,7 +4,7 @@ layout: layouts/home
 
 eleventyNavigation:
   key: es-home
-  title: Home
+  title: Inicio
   order: 1
   icon: home
 ---
