@@ -9,7 +9,7 @@ layout: base
     {{ pageMacro.header({'title': title, 'description': description}, locale) }}
 
     <div class="mx-auto flex justify-center p-4 max-w-7xl ">
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {% for tag in collections.tags[locale.lang] %}
         <article class="flex flex-col border-2 rounded p-5 max-w-xl prose dark:prose-invert">
           {% set tagUrl %}/{{ locale.lang }}/tags/{{ tag }}/{% endset %}
