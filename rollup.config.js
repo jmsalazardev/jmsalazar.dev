@@ -14,9 +14,9 @@ export default {
       replace({
         preventAssignment: true,
         exclude: 'node_modules/**',
-        ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+        ENV: JSON.stringify(process.env.ELEVENTY_ENV || 'development'),
       }),
-      (process.env.NODE_ENV === 'production' && terser())
+      (process.env.ELEVENTY_ENV === 'production' && terser())
     ],
     output: {
         sourcemap: false,
