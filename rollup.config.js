@@ -5,7 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-    input: 'src/_assets/js/index.js',
+    input: 'src/scripts/index.js',
     plugins: [
       peerDepsExternal(),
       resolve(), 
@@ -20,7 +20,7 @@ export default {
     ],
     output: {
         sourcemap: false,
-        file: 'src/_includes/assets/bundle.js',
+        file: 'src/site/_includes/assets/bundle.js',
         format: 'cjs'
     },
     

@@ -1,5 +1,0 @@
-{
-  "layout": "layouts/post",
-  "type": "Article",
-  "permalink": "{{ locale.lang }}/blog/{{slug}}/"
-}

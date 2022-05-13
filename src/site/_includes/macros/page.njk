@@ -1,0 +1,8 @@
+{% macro header(params, locale) %}
+<header class="mb-8 bg-indigo-700">
+    <div class="py-8 md:py-16 lg:py-24">
+        <h1 class="text-center text-3xl text-gray-50">{{ params.title }}</h1>
+        <p class="text-center py-2 text-gray-200">{{ params.description }}</p>
+    </div>
+</header>
+{% endmacro %}

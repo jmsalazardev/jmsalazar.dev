@@ -1,6 +1,6 @@
 module.exports = {
   darkMode: 'class',
-  content: ['src/**/*.njk'],
+  content: ['src/site/**/*.njk'],
   theme: {
     extend: {},
   },

@@ -1,0 +1,24 @@
+---
+layout: base 
+---
+{% import "macros/page.njk" as pageMacro %}
+
+
+<main class="flex-auto">
+    <div class="mx-auto w-full h-16 md:h-20"></div>
+
+    {{ pageMacro.header({'title': title, 'description': description}, locale) }}
+
+    <div class="mx-auto flex flex-row-reverse justify-center">
+        <div class="prose dark:prose-invert px-4">
+            {%- if toc -%}
+                <details class="border-y-2 border-gray-500 py-4 px-1 w-full" aria-label="On this page">
+                    <summary class="font-medium text-highlight list-none relative leading-6">{{ 'content.on-this-page' | i18n(locale) }}</summary>
+                    {{ content | toc({wrapperClass: 'toc not-prose'}) | safe }}
+                </details>
+            {%- endif -%}
+
+            {{ content | safe}}
+        </div>
+    </div>
+</main>

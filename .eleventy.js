@@ -1,4 +1,3 @@
-const { minify } = require("terser");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -9,79 +8,62 @@ const pluginSEO = require("eleventy-plugin-seo");
 const pluginManifest = require("@navillus/eleventy-plugin-manifest");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const metadata = require("./src/_data/metadata.json");
-const site = require("./src/_data/site");
+
+const metadata = require("./src/site/_data/metadata.json");
+const site = require("./src/site/_data/site");
 
 const string = require('string');
 const slugify = s => string(s).slugify().toString();
 
 const cssCleaner = new CleanCSS({});
 
+const _11ty = './src/site/_11ty';
+
 const collections = {
-  enPosts: require('./src/_11ty/collections/enPosts'),
-  esPosts: require('./src/_11ty/collections/esPosts'),
-  esTags: require('./src/_11ty/collections/esTags'),
-  enTags: require('./src/_11ty/collections/enTags'),
+  blogPosts: require(`${_11ty}/collections/blogPosts`),
+  tags: require(`${_11ty}/collections/tags`),
 };
 
+
 const filters = {
-  heading: require('./src/_11ty/filters/heading'),
-  htmlDateString: require('./src/_11ty/filters/html-date-string'),
-  i18n: require('./src/_11ty/filters/i18n'),
-  readableDate: require('./src/_11ty/filters/readable-date'),
-  shortTitle: require('./src/_11ty/filters/short-title'),
-  subtitle: require('./src/_11ty/filters/subtitle'),
+  heading: require(`${_11ty}/filters/heading`),
+  htmlDateString: require(`${_11ty}/filters/html-date-string`),
+  i18n: require(`${_11ty}/filters/i18n`),
+  readableDate: require(`${_11ty}/filters/readable-date`),
+  shortTitle: require(`${_11ty}/filters/short-title`),
+  subtitle: require(`${_11ty}/filters/subtitle`),
   cssmin: (code) => (cssCleaner.minify(code).styles),
   toString: (value) => (JSON.stringify(value)),
   btoa: (value) => (btoa(value)),
-  // inlineCSS: (tmplClass) => (cssMap[tmplClass] ?? ''),
-  // inlineJS: (tmplClass) => (jsMap[tmplClass] ?? jsMap["main"])
 };
-
-
 
 
 const shortcodes = {
-  youtube: require('./src/_11ty/shortcodes/youtube')
+  youtube: require(`${_11ty}/shortcodes/youtube`)
 };
 
 const transforms = {
-  imagesResponsiver: require("./src/_11ty/transforms/image"),
-  htmlMinifier: require("./src/_11ty/transforms/html-minifier")
+  imagesResponsiver: require(`${_11ty}/transforms/image`),
+  htmlMinifier: require(`${_11ty}/transforms/html-minifier`)
 };
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addWatchTarget("src");
 
-  //#region Plugins
-
-  eleventyConfig.addNunjucksAsyncFilter("jsmin", async (
-    code,
-    callback
-  ) => {
-    try {
-      const minified = await minify(code);
-      callback(null, minified.code);
-    } catch (err) {
-      console.error("Terser error: ", err);
-      // Fail gracefully.
-      callback(null, code);
-    }
-  });
-
-
-  // eleventyConfig.addPlugin(pluginCSS);
-
   eleventyConfig.addPlugin(svgContents);
 
   eleventyConfig.addPlugin(pluginManifest, site.manifest);
 
-  eleventyConfig.addPlugin(pluginPWA, {
-    swDest: "./public/sw.js",
-    globDirectory: "./public",
 
-  });
+  if (site.env === 'production') {
+    eleventyConfig.addPlugin(pluginPWA, {
+      swDest: "./public/sw.js",
+      globDirectory: "./public",
+
+    });
+  }
+
 
   eleventyConfig.addPlugin(pluginSEO, {
     title: metadata.title,
@@ -103,10 +85,12 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addPassthroughCopy({
-    'src/_assets/.well-known': '.well-known',
+    'src/.well-known': '.well-known',
+    'public/en/index.html': 'localized/en_ALL/index.html',
+    'public/es/index.html': 'localized/es_ALL/index.html',
   });
 
-  eleventyConfig.addLayoutAlias("tag", "layouts/tag.njk");
+  // eleventyConfig.addLayoutAlias("tag", "layouts/tag.njk");
 
   /* Markdown Overrides */
 
@@ -142,16 +126,29 @@ module.exports = (eleventyConfig) => {
   }
 
 
+  eleventyConfig.on('eleventy.after', async () => {
+    const langs = ['en', 'es'];
+    for (const lang of langs) {
+      await fs.promises.mkdir(`public/localized/${lang}_ALL/`, { recursive: true });
+      await fs.promises.copyFile(`public/${lang}/index.html`, `public/localized/${lang}_ALL/index.html`);
+      await fs.promises.copyFile(`public/${lang}/404.html`, `public/localized/${lang}_ALL/404.html`);
+    }
+  });
+
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: (err, browserSync) => {
-        const content_404 = fs.readFileSync("public/404.html");
         browserSync.addMiddleware("*", (req, res) => {
+          const [, lang] = (req.url || '/en/').split('/');
+
+          const content_404 = fs.readFileSync(`public/${lang}/404.html`);
+
           // Provides the 404 content without redirect.
           res.write(content_404);
           res.end();
         });
+
       },
     },
     ui: false,
@@ -178,9 +175,10 @@ module.exports = (eleventyConfig) => {
     htmlTemplateEngine: "njk",
 
     dir: {
-      input: "src",
+      input: "src/site/content",
       output: "public",
-      includes: "_includes"
+      data: "../_data",
+      includes: "../_includes"
     },
   };
 };

@@ -1,7 +1,6 @@
 {
+    "i18n-ally.namespace": true,
     "i18n-ally.localesPaths": [
-        "locales",
-        "src/_data/i18n",
-        "src/_data/locales"
+        "src/locales"
     ]
 }
