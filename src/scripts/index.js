@@ -16,10 +16,7 @@ Alpine.plugin(image);
 window.Alpine = Alpine;
 window.Alpine.start();
 
-
-const env = "{{site.env}}";
-
-if (env === "production" && "serviceWorker" in navigator) {
+if (navigator.serviceWorker) {
   navigator.serviceWorker
     .register("/sw.js")
     .then(function () {
