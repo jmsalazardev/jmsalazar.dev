@@ -6,7 +6,7 @@ border-t border-slate-900/10 dark:border-slate-300/10 py-4 sm:py-12
             {%- for name, item in metadata.links -%}
                 <li>
                     {%- set icon = "/src/site/_includes/svg/" + name + ".svg" -%}
-                    <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener" class="mr-9 w-full text-gray-700 dark:text-gray-100">
+                    <a href="{{ item }}" title="Sígueme en {{ name }}" target="_blank" rel="noopener" class="{%if not loop.last %}mr-9 {% endif %}w-full text-gray-700 dark:text-gray-100">
                         {{ icon | svgContents("inline w-5 ") | safe }}
                     </a>
                 </li>
