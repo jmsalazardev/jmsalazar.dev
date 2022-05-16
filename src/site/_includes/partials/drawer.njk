@@ -1,5 +1,3 @@
-{% set navPages = collections.all | eleventyNavigation(locale.lang) %}
-
 <div x-data="drawer" @toggle-drawer.window="toggle()">
     <div class="z-20 fixed inset-0 transition-opacity" @click="toggle" x-show="isOpen()">
         <div tabindex="0" class="absolute inset-0 bg-black opacity-50"></div>
@@ -19,7 +17,10 @@
         </a>
             
 
-        {%- for entry in navPages %}
+        {% if locale.lang %}
+            {% set navPages = collections.all | eleventyNavigation(locale.lang) %}
+
+            {%- for entry in navPages %}
             
         <a href="{{ entry.url | url }}" @click="close()" class="flex items-center p-4 lg:px-8  hover:bg-indigo-500 hover:text-white dark:text-white dark:hover:bg-indigo-600">
             {% if entry.icon %}
@@ -29,7 +30,16 @@
             {{ entry.title }}
         </a>
             
-        {%- endfor -%}
+            {%- endfor -%}
+        {% else %}
+            {% for entry in locales%}
+        <a href="/{{ entry.code }}/" @click="close()" class="flex items-center p-4 lg:px-8  hover:bg-indigo-500 hover:text-white dark:text-white dark:hover:bg-indigo-600">
+            {% set icon = "/src/site/_includes/svg/" + entry.code + ".svg"  %}
+            {{ icon | svgContents("inline w-6 stroke-current stroke-2 mr-2") | safe }}
+            {{ entry.label }}
+        </a>
+            {% endfor %}
+        {% endif %}
 
         <div class="fixed bottom-0 w-full"></div>
     </aside>
