@@ -12,6 +12,7 @@
  }
 
  const isLive = (post) => {
+   console.log({draft: post.data.draft, env})
    if (!post.date) {
      throw new Error(`${post.inputPath} did not specify a date.`);
    }

@@ -4,3 +4,6 @@ opinion:
 blog:
   title: Blog
   description: Consulte las últimas noticias, actualizaciones para desarrolladores.
+projects:
+  title: Proyectos
+  description: Conoce algunos de mis proyectos.
