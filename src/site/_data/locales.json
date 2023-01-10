@@ -1,12 +1,12 @@
 [
-    {
-      "label": "English",
-      "code": "en",
-      "order": 2
-    },
-    {
-      "label": "Español",
-      "code": "es",
-      "order": 1
-    }
+  {
+    "label": "English",
+    "code": "en",
+    "order": 2
+  },
+  {
+    "label": "Español",
+    "code": "es",
+    "order": 1
+  }
 ]

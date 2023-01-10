@@ -33,3 +33,8 @@ src/_includes/assets/*
 
 # Built Visual Studio Code Extensions
 *.vsix
+.DS_Store
+
+
+bundle.css
+bundle.js

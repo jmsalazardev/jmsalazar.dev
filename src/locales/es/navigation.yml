@@ -1,5 +1,6 @@
 home: Inicio
-post:  Publicaciones
-tags: Etiquetas
+post: Publicaciones
+tags:
+  - Etiquetas
 terms: Condiciones
 privacy: Privacidad

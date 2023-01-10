@@ -4,19 +4,24 @@ layout: base
 {% import "macros/page.njk" as pageMacro %}
 {% import "macros/tag.njk" as tagMacro %}
 
-<main class="flex-auto">
+<main class="flex-auto pt-16">
   <div class="mx-auto w-full h-16 md:h-20"></div>
-    {{ pageMacro.header({'title': title, 'description': description}, locale) }}
-
+    {{ pageMacro.header(title, description) }}
+    
     <div class="mx-auto flex justify-center p-4 max-w-7xl ">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for tag in collections.tags[locale.lang] %}
+        {% for tag in collections[collection] %}
         <article class="flex flex-col border-2 rounded p-5 max-w-xl prose dark:prose-invert">
-          {% set tagUrl %}/{{ locale.lang }}/tags/{{ tag }}/{% endset %}
+          {% if locale.default %}
+          {% set tagPrefix %}/tags{% endset %}
+          {% else %}
+          {% set tagPrefix %}/{{locale.lang}}/tags/{% endset %}
+          {% endif %}
+          {% set tagUrl %}{{ tagPrefix }}/{{ tag | slug}}/{% endset %}
           {% set tagTitle %}tags.{{tag}}.title{% endset %}
           {% set tagDescription %}tags.{{tag}}.description{% endset %}
           <h2 class="font-bold">
-            <a href="/{{ locale.lang }}/tags/{{ tag | slug }}/" class="text-xl">{{ tagTitle | i18n(locale) }}</a>
+            <a href="{{ tagUrl | url }}" class="text-xl">{{ tagTitle | i18n(locale) }}</a>
           </h2>
           <p class="pt-1">{{ tagDescription | i18n(locale) }}</p>
         </article>

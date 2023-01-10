@@ -1,70 +1,65 @@
 {% if pagination.pageLinks.length > 1 %}
-<nav aria-labelledby="my-pagination" class="flex items-center justify-center p-6">
+
+{% set disabled = "flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed dark:bg-gray-900 dark:text-gray-600" %}
+{% set enabled = "flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200" %}
+
+<nav aria-labelledby="pagination" class="flex items-center justify-center p-6">
   <ol class="flex">
     <li class="flex">
         {% if page.url != pagination.href.first %}
-        <a href="{{ pagination.href.first }}" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+        <a href="{{ pagination.href.first }}" class="{{ enabled }}">
             {{ "pagination.first" | i18n(locale) }}
         </a>
         {% else %}
-        <a href="#" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed dark:bg-gray-900 dark:text-gray-600">
+        <div class="{{ disabled }}">
            {{ "pagination.first" | i18n(locale) }}
-        </a>
+        </div>
         {% endif %}
     </li>
     <li class="flex">
         {% if pagination.href.previous %}
-         <a href="{{ pagination.href.first }}" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
+         <a href="{{ pagination.href.previous }}" class="{{ enabled }}">
+            {{ "/src/svg/left.svg" | svgContents("dark:fill-white inline w-6 h-6") | safe }}
         </a>
         {% else %}
-        <a href="#" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed dark:bg-gray-900 dark:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-        </a>
-        
+        <div class="{{ disabled }}">
+            {{ "/src/svg/left.svg" | svgContents("dark:fill-gray-600 inline w-6 h-6") | safe }}
+        </div>
         {% endif %}
     </li>
-{%- for pageEntry in pagination.pages %}
+   
     <li class="flex">
         <a 
-            href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}
-            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md sm:inline dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200"
+            href="{{ pagination.hrefs[ pagination.pageNumber ] }}"
+            aria-current="page"
+            class="{{ enabled }}"
         >
-            {{ loop.index }}
+            {{ pagination.pageNumber +1 }}
         </a>
     </li>
     
-{%- endfor %}
+
     <li class="flex">
         {% if pagination.href.next %}
-        <a href="{{ pagination.href.next }}" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                </svg>
+        <a href="{{ pagination.href.next }}" class="{{ enabled }}">
+                {{ "/src/svg/right.svg" | svgContents("dark:fill-white inline w-6 h-6") | safe }}
         </a>
-
         {% else %}
-        <a href="#" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed dark:bg-gray-900 dark:text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                </svg>
-        </a>
+        <div class="{{ disabled }}">
+                {{ "/src/svg/right.svg" | svgContents("dark:fill-gray-600 inline w-6 h-6") | safe }}
+        </div>
         {% endif %}
     </li>
     <li class="flex">
         {% if page.url != pagination.href.last %}
-        <a href="{{ pagination.href.last }}" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md dark:bg-gray-900 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+        <a href="{{ pagination.href.last }}" class="{{ enabled }}">
             {{ "pagination.last" | i18n(locale) }}
         </a>
 
         {% else %}
-        <a href="#" class="flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed dark:bg-gray-900 dark:text-gray-600">
+        <div class="{{ disabled }}">
             {{ "pagination.last" | i18n(locale) }}
-        </a>
+        </div>
         {% endif %}
     </li>
   </ol>

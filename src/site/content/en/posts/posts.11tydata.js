@@ -1,20 +1,24 @@
-const string = require('string');
-const slugify = s => string(s).slugify().toString();
+const slugify = require("../../../_11ty/filters/slugify");
+const metadata = require("../../../_data/metadata.json");
+
+const section = "posts";
+const category = "article";
 
 module.exports = {
-  layout: 'post',
-  section: 'blog',
-  type: 'article',
+  layout: "post",
   eleventyComputed: {
-    slug: data =>  data.slug || slugify(data.title),
-    permalink: data => `${data.locale.lang}/${data.section}/${data.slug}/`,
-
+    canonical: (data) =>
+      `${metadata.url}/${data.locale.lang}/posts/${data.slug}/`,
+    slug: (data) => data.slug || slugify(data.title),
+    permalink: (data) => `/${data.locale.lang}/${section}/${data.slug}/`,
+    alternate: (data) => [
+      ...data.alternate,
+      { rel: "amphtml", href: `${metadata.url}/amp${data.permalink}` },
+    ],
     eleventyNavigation: {
-      key: data => data.slug,
-      parent: data => `${data.locale.lang}-${data.section}`,
-    }
-  }
-
+      key: (data) => `${data.slug}`,
+      parent: (data) => `${data.locale.lang}-${section}`,
+    },
+    category,
+  },
 };
-
-  

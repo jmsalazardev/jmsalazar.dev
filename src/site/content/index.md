@@ -1,21 +1,26 @@
 ---
-title: JMSalazarDev
 layout: home
-
+title: JMSalazarDev Blog
+excerpt: Bienvenido a mi Blog Personal donde escribo sobre desarrollo de software y cosas que me gustan en general.
 eleventyNavigation:
-  key: root
-  title: Root
+  key: es
+  title: Inicio
   order: 1
-#  icon: ./assets/svg/home.svg
+  icon: home
 ---
 
- 
-[🇪🇸 Español](/es/)
-Hola, soy @JMSalazarDev, desarrollador de software y escribo sobre desarrollo web en general.
+Hola 👋 Mi nombre es José Miguel Salazar
+========================================
+Ingeniero de Software
+---------------------
 
+He estado trabajando como desarrollador de software por mas de 15 años tanto como en frontend como en backend.
 
-[🇬🇧 English](/en/)
-Hi, I'm @JMSalazarDev, software developer and I write about web development in general.
-
+🌍  Actualmente estoy en los Países Bajos.
+✉️  Puedes contactarme a mi correo [contact@jmsalazar.dev](mailto:contact@jmsalazar.dev).
+🚀  Actualmente estoy trabajando en [Mi Blog](http://jmsalazar.dev).
+🧠  Estoy aprendiendo neerlandés e ingles.
+🤝  Estoy abierto a colaborar en proyectos Javascript en general.
+⚡  Padre, Blogger y estoy en constante aprendizaje.
 
 

@@ -1,0 +1,33 @@
+<script type="application/ld+json">
+{%- set absolutePostUrl = permalink | url | absoluteUrl(metadata.url) %}
+
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ absolutePostUrl }}"
+      },
+      "headline": "{{ title }}",
+      "image": [
+        "{{ image }}"
+      ],
+      "datePublished": "{{date | dateToRfc3339 }}",
+      {% if author %}
+      "author": {
+        "@type": "Person",
+        "name": "{{ author }}",
+        "url": "https://twitter.com/JMSalazarDev/"
+      },
+      {% endif %}
+      "publisher": {
+        "@type": "Organization",
+        "name": "JMSalazarDev",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{  "maskable_icon.png" | url | absoluteUrl(metadata.url) }}"
+        }
+      }
+    }
+
+    </script>

@@ -1,6 +1,6 @@
-const baseUrl = 'https://jmsalazar.dev';
-const helpers = require('./helpers');
-
+const baseUrl = "https://jmsalazar.dev";
+const helpers = require("./helpers");
+const authors = require("./authors.json");
 const manifest = {
   output: "public",
   name: "JMSalazarDev",
@@ -12,35 +12,51 @@ const manifest = {
   orientation: "portrait",
   description: "Un blog de un desarrollador de software",
   icon: "src/images/favicon.png",
-  icons: [...helpers.appleIcons(), ...helpers.maskableIcons()]
+  icons: [...helpers.appleIcons(), ...helpers.maskableIcons()],
+};
+
+const author = authors.jmsalazardev;
+
+const ads = {
+  type: "adsense",
+  "data-ad-client": "ca-pub-3653368526664916",
+};
+
+const analytics = {
+  type: "googleanalytics",
+  config: "https://jmsalazar.dev/analytics.account.config.json",
 };
 
 module.exports = {
-  env: process.env.ELEVENTY_ENV || 'dev',
+  env: process.env.ELEVENTY_ENV || "dev",
   buildTime: new Date(),
-  name: "JMSalazar.dev",
+  name: manifest.name,
   url: baseUrl,
-  authorName: "José Miguel Salazar",
-  authorUrl: "https://twitter.com/JMSalazarDev",
-  description: "Un blog de desarrollo de software.",
-  gtag: {
-    src: 'https://www.googletagmanager.com/gtag/js?id={id}',
-    hosts: ['jmsalazar.dev', '10.192.0.108'],
-    configs: ['G-KH7TX6T3E9'],
-    delay: 1000,
-  },
-  comments: {
-    // disqus:
-    //  src: "https://jmsalazardev.disqus.com/embed.js",
-    //    
-    // utterances: 
-    repo: "jmsalazardev/comments",
-    theme: "github-light",
-    'issue-term': '{url}',
-    src: "https://utteranc.es/client.js",
-    crossorigin: 'anonymous',
-    async: true,
-  },
-
-  manifest
+  authorName: author.name,
+  authorUrl: "https://twitter.com/jmsalazardev",
+  description: manifest.description,
+  manifest,
+  metadata: [
+    {
+      charset: "utf-8",
+    },
+    {
+      "http-equiv": "x-ua-compatible",
+      content: "ie=edge",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1.0",
+    },
+    {
+      name: "google-site-verification",
+      content: "o62qymacwFHda3VDv6spKazWaHsP3FhHbVuweoBHxAk",
+    },
+    {
+      name: "theme-color",
+      content: manifest.theme_color,
+    },
+  ],
+  ads,
+  analytics,
 };

@@ -1,8 +1,7 @@
 ---
 layout: home
-title: JMSalazarDev
-excerpt: A software engineer's blog
-
+title: JMSalazarDev Blog 
+excerpt: Welcome to my personal blog where I write about software development and other things that I enjoy.
 eleventyNavigation:
   key: en
   title: Home
@@ -10,17 +9,16 @@ eleventyNavigation:
   icon: home
 ---
 
-Hi 👋 My name is José Miguel Salazar
-====================================
-
+Hello 👋 My name is José Miguel Salazar
+=======================================
 Software Engineer
------------------
+---------------------
 
-I have been working as a software developer for more than 15 years as a frontend and backend developer.
+I have been working as a software developer for over 15 years, both in frontend and backend.
 
-* 🌍  I'm based in Netherlands
-* ✉️  You can contact me at [contact@jmsalazar.dev](mailto:contact@jmsalazar.dev)
-* 🚀  I'm currently working on [My Blog](http://jmsalazar.dev)
-* 🧠  I'm learning Dutch and English
-* 🤝  I'm open to collaborating on Javascript projects
-* ⚡  Father, Blogger and Lifelong learner
+🌍 Currently, I am in the Netherlands.
+✉️ You can contact me at my email contact@jmsalazar.dev.
+🚀 I am currently working on My Blog.
+🧠 I am learning Dutch and English.
+🤝 I am open to collaborate on Javascript projects in general.
+⚡ Father, Blogger and I am constantly learning.

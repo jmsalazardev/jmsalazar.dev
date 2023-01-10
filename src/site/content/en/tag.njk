@@ -1,12 +1,9 @@
 ---
 layout: tag
 pagination:
-    data: collections
+    data: collections.enTags
     size: 1
     alias: tag
-    filter:
-      - all
-      - blogPosts
 permalink: /{{locale.lang}}/tags/{{ tag | slug }}/
 eleventyComputed:
   title: Etiqueta “{{ tag | i18n(locale) }}”

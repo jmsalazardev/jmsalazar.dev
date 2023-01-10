@@ -1,19 +1,19 @@
 ---
 layout: base
 ---
-{% import "macros/page.njk" as pageMacro %}
-{% import "macros/post.njk" as post %}
 
-<main class="flex-auto">
-  <div class="mx-auto w-full h-16 md:h-20"></div>
-  {{ pageMacro.header({'title': title, 'description': description}, locale) }}
+{% import "macros/page.njk" as pageMacros %}
+{% import "macros/posts.njk" as postsMacros %}
+
+{% include "partials/structured-data/breadcrumb.njk" %}
+<main class="flex-auto pt-16">
   
-  <div class="mx-auto flex flex-row-reverse max-w-7xl px-4 mb-12 ">
+  {{ pageMacros.header(title, excerpt, bg) }}
+  
+  <div class="mx-auto justify-center flex flex-row-reverse max-w-7xl px-4 mb-12 ">
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for item in pagination.items | sort(attribute = 'time') %}
-          <li>
-              {{ post.card(item, locale) }}
-          </li>
+        {% for item in pagination.items %}
+          <li>{{ postsMacros.card(item, locale) }}</li>
         {% endfor %}
       </ul>
     </div>

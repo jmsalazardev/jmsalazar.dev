@@ -1,9 +1,6 @@
-opinion:
-  title: Opinión
-  description: Blabla
-blog:
-  title: Blog
-  description: Consulte las últimas noticias, actualizaciones para desarrolladores.
-projects:
-  title: Proyectos
-  description: Conoce algunos de mis proyectos.
+programacion:
+  title: Programación
+  description: Revisa las últimas noticias y actualizaciones para desarrolladores.
+blogging:
+  title: Blogging
+  description: Temas para bloggers y creadores de contenidos.

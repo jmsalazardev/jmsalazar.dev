@@ -1,17 +1,17 @@
 ---
 title: 5 Reasons why you should learn Programming
+slug: 5-reasons-learn-programming
 excerpt: Programming is an incredibly valuable skill that will allow you to greatly improve your current working conditions. Read on to find out how.
 image: https://lh3.googleusercontent.com/Etun_zU6wpawIm7Hk7nzD7vGE8e3XpSlUAYVgO5lyJiSg0EUpFPNV04IzRUewiHCD4Yto3luTSKWPV1U699-eYUE2jPiu0YPqZuIADDgimZ8-1UvfQ4EqyQhaIcaKLTT5Ie9eyE3DY0#width=4898&height=2755
 date: 2022-04-05
 tags:
-    - blog
-    - opinion
+    - programming
 toc: true
 author: jmsalazardev
 alternate:
     - type: lang
       hreflang: es
-      href: /es/blog/5-razones-aprender-programacion/
+      href: /posts/5-razones-aprender-programacion/
 ---
 
 ## Introduction

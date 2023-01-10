@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Condiciones",
+    "description": "Condiciones del servicio",
+    "link": "/condiciones/"
+  },
+  {
+    "label": "Privacidad",
+    "description": "Politica de privacidad",
+    "link": "/privacidad/"
+  },
+  {
+    "label": "Contacto",
+    "description": "Contacto",
+    "link": "/contacto/"
+  }
+]

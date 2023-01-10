@@ -1,0 +1,61 @@
+---
+layout: base-amp 
+---
+{% import "./macros/structured-data.njk" as structuredData %}
+
+{% if site.analytics %}
+<amp-analytics
+{% for key, value in site.analytics %}
+    {{ key }}="{{ value }}"
+{% endfor %} 
+></amp-analytics>
+{% endif %}
+
+{% if site.ads and not disableAds %}
+    <amp-auto-ads
+        {% for key, value in site.ads %}
+            {{ key }}="{{ value }}"
+        {% endfor %}
+    >
+    </amp-auto-ads>
+{% endif %}
+
+
+<main class="flex-auto pt-16">
+    <div class="mx-auto flex flex-row-reverse justify-center">
+        <article class="prose dark:prose-invert px-4">
+            <header>
+                
+                <h1>
+                    {{ post.data.title | shortTitle }}
+                    <span class="mt-2 block text-lg text-slate-700 dark:text-slate-400">{{ post.data.title | subtitle }} </span>    
+                </h1>
+                <p>{{ post.data.excerpt }}</p>
+                <amp-img class="object-none object-center mx-auto w-full max-h-96 shadow-lg" src="{{ post.data.image }}" alt="{{ post.title }}" layout="responsive" height="{{ post.data.image | imageAttr('height') }}" width="{{ post.data.image | imageAttr('width') }}" ></amp-img>
+                <time class="mx-1 text-xs text-gray-600 dark:text-gray-300">{{ post.data.date | readableDate}}</time>
+                
+            </header>
+
+            {%- if post.data.toc -%}
+                <details class="border-y-2 border-gray-500 py-4 px-1 w-full" aria-label="On this page">
+                    <summary class="font-medium text-highlight list-none relative leading-6">{{ 'content.on-this-page' | i18n(locale) }}</summary>
+                    {{ post.data.content | toc({wrapperClass: 'toc not-prose'}) | safe }}
+                </details>
+            {%- endif -%}
+
+
+        {{ post.data.content | safe }}
+
+        <div class="w-full tags py-6 tags">
+                {% for tag in post.data.tags %}
+                    {% set tagTitle %}tags.{{tag}}.title{% endset %}
+                    {% set tagDescription %}tags.{{tag}}.description{% endset %}
+
+                    <a href="/tags/{{ tag | slug | url }}/" title="{{ tagDescription | i18n(locale) }}" class="mr-2 px-4 py-2 border-2 rounded-full no-underline font-light cursor-pointer hover:bg-indigo-600 hover:text-white hover:border-0"> 
+                        {{ tagTitle | i18n(locale) }}
+                    </a>
+                {% endfor %}
+            </div>
+        </article>
+    </div>
+</main>

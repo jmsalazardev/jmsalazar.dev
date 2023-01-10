@@ -1,11 +1,12 @@
 ---
 layout: simple
 title: Terms of service
-description: Do you have doubts about the content of JMSalazar.dev? Find out about the terms of service here.
+description: Do you have doubts about the content of jmsalazar.dev? Find out about the terms of service here.
 date: 2022-04-05
 toc: true
 noindex: true
 ---
+
 ## 1. Introduction
 
 These general conditions of use of the website, regulate the terms and conditions of access and use of **jmsalazar.dev**, owned by a natural person who reserves the right not to be bound by law not to disclose your personal information. That the user of the Blog must read and accept to use all services and information provided from the blog. The mere access and / or use of the blog, all or part of its contents and / or services means full acceptance of these general conditions of use.
@@ -16,7 +17,7 @@ These general conditions of use of the blog regulate the access and use of the b
 
 ## 3. Modifications
 
-**JMSalazar.dev** reserves the right to modify at any time the general conditions of use of the blog. In any case, it is recommended that you periodically consult these terms of use of the blog, as they may be modified.
+**jmsalazar.dev** reserves the right to modify at any time the general conditions of use of the blog. In any case, it is recommended that you periodically consult these terms of use of the blog, as they may be modified.
 
 ## 4. User Obligations
 
@@ -41,4 +42,3 @@ In any case, the blog reserves all rights to the content, information, data and 
 # # 7. Applicable law, jurisdiction and notices
 
 These conditions are governed by and construed in accordance with the laws of Chile. For any claim will be competent courts and tribunals of Santiago. All notices, requirements, requests and other communications that the User wishes to make to the Company owner of the Blog must be made in writing and shall be deemed to have been properly made when they have been received at the following address [contact@jmsalazar.dev](mailto:contact@jmsalazar.dev)
-

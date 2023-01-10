@@ -1,35 +1,44 @@
+import { gtag as config } from "../config";
+
 export default function (Alpine) {
-    Alpine.data('gtag', () => ({
-        init() {
-            // https://developers.google.com/tag-platform/gtagjs/install
+  Alpine.data("gtag", () => ({
+    init() {
+      // https://developers.google.com/tag-platform/gtagjs/install
 
-            // Configuration loaded from 11ty data (site.gtag)
-            const config = JSON.parse(atob('{{site.gtag | toString | safe | btoa }}'));
+      // gtags should be loaded only in production
+      if (!config.hosts.includes(document.location.hostname)) return;
 
-            // gtags should be loaded only in production
-            if (!config.hosts.includes(document.location.hostname)) return;
+      // gtag should be loaded only once.
+      if (document.querySelector(`script[src="${config.attrs.src}"]`)) return;
 
+      const script = document.createElement("script");
+      for (const [key, value] of Object.entries(config.attrs)) {
+        script.setAttribute(key, value);
+      }
 
-            const [id] = config.configs;
-            if (!id) return;
-            const src = config.src.replace('{id}', id);
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        config.ids.forEach((id) => gtag("config", id));
+      };
 
-            // gtag should be loaded only once.
-            if (document.querySelector(`script[src="${src}"]`)) return;
+      let timeout;
+      const loadScript = () => {
+        document.removeEventListener("scroll", loadScript);
+        document.removeEventListener("mousemove", loadScript);
+        document.removeEventListener("touchstart", loadScript);
+        if (timeout) clearTimeout(timeout);
 
-            const script = document.createElement("script");
-            script.setAttribute('src', src);
-            script.setAttribute('async', true);
-            script.onload = () => {
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                gtag('js', new Date());
-                config.configs.forEach((id) => gtag('config', id));
-            };
+        (document.head || document.body).appendChild(script);
+      };
 
-            setTimeout(() => {
-                (document.head || document.body).appendChild(script);
-            }, config.delay || 0);
-        },
-    }));
+      timeout = setTimeout(loadScript, config.delay || 0);
+      document.addEventListener("scroll", loadScript);
+      document.addEventListener("mousemove", loadScript);
+      document.addEventListener("touchstart", loadScript);
+    },
+  }));
 }

@@ -1,35 +1,35 @@
 {
-    "title": "JMSalazarDev",
-    "url": "https://jmsalazar.dev",
-    "description": "Un blog de un desarrollador de software",
-    
-    "themeColor": "#272b30",
-    "links": {
-      "github": "https://github.com/jmsalazardev/",
-      "twitter": "https://twitter.com/jmsalazardev/",
-      "instagram": "https://www.instagram.com/jmsalazardev/",
-      "youtube": "https://www.youtube.com/channel/UCPVqtdfz41-GZvviFeO87rA/"
-    },
-    "social": {
-      "twitter": {
-        "id": "jmsalazardev",
-        "link": "https://twitter.com/jmsalazardev/"
-      }
-    },
-    "feed": {
-      "subtitle": "JMSalazarDev",
-      "filename": "feed.xml",
-      "path": "/feed/feed.xml",
-      "id": "https://jmsalazar.dev"
-    },
-    "jsonfeed": {
-      "path": "/feed/feed.json",
-      "url": "https://jmsalazar.dev/feed/feed.json"
-    },
-    "author": {
-      "name": "José Miguel Salazar",
-      "email": "contacto@jmsalazar.dev",
-      "url": "https://jmsalazar.dev/contacto/"
+  "title": "JMSalazarDev",
+  "url": "https://jmsalazar.dev",
+  "description": "Un blog de un desarrollador de software",
+
+  "themeColor": "#272b30",
+  "links": {
+    "github": "https://github.com/jmsalazardev/",
+    "twitter": "https://twitter.com/jmsalazardev/",
+    "instagram": "https://www.instagram.com/jmsalazardev/",
+    "youtube": "https://www.youtube.com/channel/UCPVqtdfz41-GZvviFeO87rA/",
+    "google-play": "https://play.google.com/store/apps/details?id=dev.jmsalazar.app"
+  },
+  "social": {
+    "twitter": {
+      "id": "jmsalazardev",
+      "link": "https://twitter.com/jmsalazardev/"
     }
+  },
+  "feed": {
+    "subtitle": "JMSalazarDev",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://jmsalazar.dev"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://jmsalazar.dev/feed/feed.json"
+  },
+  "author": {
+    "name": "José Miguel Salazar",
+    "email": "contacto@jmsalazar.dev",
+    "url": "https://jmsalazar.dev/contacto/"
   }
-  
+}

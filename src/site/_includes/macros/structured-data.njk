@@ -1,0 +1,42 @@
+{% macro video(index, data) %}
+
+
+
+{% if data.provider == 'youtube' %}
+  {% set embedUrl = 'https://www.youtube.com/embed/' + data.id %}
+  {% set thumbnailUrl = 'https://i.ytimg.com/vi/' + data.id + '/hqdefault.jpg' %}
+  {% set description = "Ver "+ data.name + " en Youtube" %}
+
+{% else %}
+  {% set embedUrl = data.embedUrl %}
+  {% set thumbnailUrl = data.thumbnailUrl %}
+  {% set description = data.description %}
+{% endif %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "VideoObject",
+      {% if data.name %}"name": "{{data.name}}",{% endif %}
+      {% if data.duration %}"duration": "{{data.duration}}",{% endif %}
+      {% if data.uploadDate %}"uploadDate": "{{data.uploadDate  | dateToRfc3339 }}",{% endif %}
+      "embedUrl": "{{embedUrl}}",
+      "thumbnailUrl": "{{thumbnailUrl}}",
+      "description": "{{description}}",
+      {% if data.author %}
+        "author":"{{data.author}}"
+      {% else %}
+        "author":"JMSalazarDev"
+      {% endif %}
+    }
+    </script>
+{% endmacro %}
+
+
+{% macro itemListElement(position, name, item) %}
+  { 
+    "@type": "ListItem",
+    "position": {{position}},
+    "name": "{{name}}",
+    "item": "{{item}}"
+  }
+{% endmacro %}

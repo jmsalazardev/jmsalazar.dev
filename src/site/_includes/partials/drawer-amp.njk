@@ -1,0 +1,37 @@
+<amp-sidebar id="drawer" layout="nodisplay" side="left">
+    <div class="z-20 sticky inset-0 transition-opacity">
+        <div tabindex="0" class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <aside class="sidebar z-50 transform top-0 left-0 w-64 bg-white dark:bg-gray-900  h-full overflow-auto ease-in-out transition-all duration-300 ">
+        <div class="flex w-full items-center p-5 md:p-7 border-b border-slate-900/10 dark:border-slate-300/10 ">
+            <span class="flex h-auto mx-auto text-slate-700 dark:text-slate-200 font-bold">
+                {{ site.name }}
+            </span>
+        </div>
+        
+        <a href="/{% if locale and not locale.default %}{{ locale.lang }}/{% endif %}" class="flex items-center p-4 lg:px-8  hover:bg-indigo-500 hover:text-white dark:text-white dark:hover:bg-indigo-600">
+            {{ "/src/svg/home.svg" | svgContents("dark:fill-white inline w-6 h-6 mr-2") | safe }}
+            {{ "navigation.home" | i18n(locale) }}
+        </a>
+            
+
+        {% if locale.lang %}
+            {% set navPages = collections.all | eleventyNavigation(locale.lang) %}
+
+            {%- for entry in navPages %}
+            
+        <a href="{{ entry.url | url }}"  class="flex items-center p-4 lg:px-8  hover:bg-indigo-500 hover:text-white dark:text-white dark:hover:bg-indigo-600">
+            {% if entry.icon %}
+                {% set icon = "/src/svg/" + entry.icon + ".svg"  %}
+                {{ icon | svgContents("dark:fill-white inline w-6 h-6 mr-2") | safe }}
+                
+            {% endif %}
+            {{ entry.title }}
+        </a>
+            
+            {%- endfor -%}
+        {% endif %}
+
+        <div class="fixed bottom-0 w-full"></div>
+    </aside>
+</amp-sidebar>

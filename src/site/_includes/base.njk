@@ -1,17 +1,19 @@
-{% import "macros/google.njk" as google %}
-
 <!DOCTYPE html>
+
 <html lang="{{ locale.lang }}" dir="{{ locale.dir }}" class="h-full">
     <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='x-ua-compatible' content='ie=edge'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="{{ site.manifest.theme_color  }}">
+        {% for meta in site.metadata %}
+        <meta  
+            {% for key, value in meta %}
+                {{ key }}="{{ value }}"
+            {% endfor %}
+        />
+        {% endfor %}
+
+        {% seo "" %}
 
         {% for link in alternate %}
-        {% if link.type == 'lang' %}
-        <link rel="alternate" hreflang="{{ link.hreflang }}" href="{{ site.url }}{{ link.href }}" />
-        {% endif %}
+            <link {% for key, value in link %}{{ key }}="{{ value }}"{% endfor %} />
         {% endfor %}
 
         {{ site.manifest | manifest | safe }}
@@ -20,46 +22,26 @@
         {% for icon in appleIcons %}
         <link rel="apple-touch-icon" type="{{ icon.type }}" sizes="{{ icon.sizes }}" href="/{{ icon.src}}" />
         {% endfor %}
-        
-        <meta name="theme-color" content="#ffffff">
 
-       
-
-        {% seo "" %}
-        {% if site.facebook.appId %}
-        <meta property="fb:app_id" content="{{ site.facebook.appId }}" />
-        {% endif %}       
     
-        {% set css %}
-        {% include "assets/bundle.css" %}
-        {% endset %}
         <style>
-        {{ css | safe }}
+            {{ "/src/styles/bundle.css" | include | safe }}
         </style>
-
-       
-
     </head>
     <body class="bg-white dark:bg-gray-900">
         <div x-data="gtag"></div>
-
          
         {% include "partials/navigation.njk" %}
 
         {% include "partials/drawer.njk" %} 
        
-        
         {{ content | safe}}   
 
         {% include "partials/footer.njk" %}
         
-         <!-- capture the JS content as a Nunjucks variable -->
-        {% set js %}
-        {% include "assets/bundle.js" %}
-        {% endset %}
-        <!-- feed it through our jsmin filter to minify -->
+        
         <script>
-            {{ js | safe }}
+            {{ "/src/scripts/bundle.js" | include | safe }}
         </script>
 
     </body>

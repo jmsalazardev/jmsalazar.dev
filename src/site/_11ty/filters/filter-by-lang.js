@@ -1,4 +1,4 @@
-const {defaultLocale} = require('../_data/site');
+const { defaultLocale } = require("../_data/site");
 // const {getDefaultUrl} = require('../_filters/urls');
 /**
  * Filters-in posts that have the same lang attribute as requested.
@@ -11,7 +11,7 @@ module.exports = function filterByLang(posts, lang = defaultLocale) {
   const filteredPosts = new Map();
   for (const post of posts) {
     if (post.data && [lang, defaultLocale].includes(post.data.lang)) {
-      const defaultUrl = post.url;  // getDefaultUrl(post.url);
+      const defaultUrl = post.url; // getDefaultUrl(post.url);
       if (filteredPosts.has(defaultUrl) && post.data.lang === lang) {
         filteredPosts.set(defaultUrl, post);
       } else if (!filteredPosts.has(defaultUrl)) {
@@ -20,6 +20,6 @@ module.exports = function filterByLang(posts, lang = defaultLocale) {
     }
   }
   return Array.from(filteredPosts.values()).sort(
-    (a, b) => b.date.getTime() - a.date.getTime(),
+    (a, b) => b.date.getTime() - a.date.getTime()
   );
 };

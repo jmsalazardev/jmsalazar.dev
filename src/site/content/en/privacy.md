@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Privacy Policy
-description: Do you have questions about how we handle your data? Check the privacy policy of JMSalazar.dev, happy to read your comments.
+description: Do you have questions about how we handle your data? Check the privacy policy of jmsalazar.dev, happy to read your comments.
 date: 2022-04-05T00:00:00.000+01:00
 toc: true
 noindex: true
@@ -14,7 +14,6 @@ We do not collect personal information about you when you visit our website, onl
 ## 2. Use of Information
 
 Any information we collect about our users may be used to:
-3
 
 - Personalize your experience and respond to your individual needs.
 - Provide customized advertising content
@@ -34,7 +33,7 @@ We do not sell, trade, or otherwise transfer to outside parties information abou
 
 We implement a variety of security measures to maintain the safety of your personal information. We use advanced encryption to protect sensitive information transmitted online. We work with Google Analytics and Google AdSense technologies, which are the most reliable in the market.
 
-**Do we use cookies?
+\*\*Do we use cookies?
 
 Yes, our cookies improve access to our site and identify repeat visitors. What's more, our cookies enhance the user experience by tracking user interests. However, this use of cookies is in no way linked to any personally identifiable information on our site.
 
@@ -45,4 +44,3 @@ This web site does not collect personal information from users, so there is no p
 ## 7. Consent
 
 By using our site, you consent to our privacy policy :).
-

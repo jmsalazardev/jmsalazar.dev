@@ -1,0 +1,14 @@
+
+{% macro item(index, data) %}
+    <div class="hidden duration-700 ease-in-out">
+        <img src="{{ data.image }}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="{{ data.label }}">
+        
+        <a href="{{ data.link }}" class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl drop-shadow-lg text-center">{{ data.label }}</a>
+    </div>
+{% endmacro %}
+
+
+{% macro indicator(index, data) %}
+    <button type="button" class="w-3 h-3 rounded-full bg-slate-500" aria-current="false" aria-label="{{ data.label }}" @click="slideTo({{ index }})"></button>
+{% endmacro %}
+

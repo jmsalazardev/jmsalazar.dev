@@ -1,7 +1,7 @@
-const locale = require('./locale');
+const locale = require("./locale");
 
 module.exports = () => {
-    return {
-        locale
-    };
+  return {
+    locale,
+  };
 };

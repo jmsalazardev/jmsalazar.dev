@@ -4,10 +4,10 @@ layout: base
 {% import "macros/page.njk" as pageMacro %}
 
 
-<main class="flex-auto">
+<main class="flex-auto pt-16">
     <div class="mx-auto w-full h-16 md:h-20"></div>
 
-    {{ pageMacro.header({'title': title, 'description': description}, locale) }}
+    {{ pageMacro.header(title, description) }}
 
     <div class="mx-auto flex flex-row-reverse justify-center">
         <div class="prose dark:prose-invert px-4">

@@ -1,5 +1,6 @@
 home: Home
-post:  Posts
-tags: Tags
+post: Posts
+tags:
+  - Tags
 terms: Terms
 privacy: Privacy

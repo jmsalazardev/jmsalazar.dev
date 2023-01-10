@@ -1,2 +1,6 @@
+# Ignore artifacts:
 node_modules
 public
+
+bundle.js
+bundle.css
