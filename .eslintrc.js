@@ -13,4 +13,7 @@ module.exports = {
   parserOptions: {
     sourceType: "module",
   },
+  globals: {
+    dataLayer: "readonly",
+  },
 };

@@ -15,8 +15,8 @@ const cssCleaner = new CleanCSS({});
 const _11ty = "./src/site/_11ty";
 
 const collections = {
-  enposts: require(`${_11ty}/collections/en-posts`), 
-  posts: require(`${_11ty}/collections/posts`), 
+  enposts: require(`${_11ty}/collections/en-posts`),
+  posts: require(`${_11ty}/collections/posts`),
   tags: require(`${_11ty}/collections/tags`),
   enTags: require(`${_11ty}/collections/en-tags`),
 };

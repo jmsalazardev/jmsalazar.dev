@@ -17,7 +17,6 @@ Si quieres apoyarme, puedes escribirme a [contacto@jmsalazar.dev](mailto:contact
 
 O bien puedes patrocinarme en [Patron](https://www.patreon.com/JMSalazarDev)
 
-
 ## Publicidad
 
 JMSalazar.dev hasta el momento tiene un alcance inferior a 1.000 usuarios mensuales, es un blog nuevo pero estaré actualizando contenido semanalmente. Si quieres publicar o promocionar tu producto, puedes escribirme a [contacto@jmsalazar.dev](mailto:contacto@jmsalazar.dev?subject=Publicidad)

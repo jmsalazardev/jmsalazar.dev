@@ -9,10 +9,9 @@ eleventyNavigation:
   icon: home
 ---
 
-Hola 👋 Mi nombre es José Miguel Salazar
-========================================
-Ingeniero de Software
----------------------
+# Hola 👋 Mi nombre es José Miguel Salazar
+
+## Ingeniero de Software
 
 He estado trabajando como desarrollador de software por mas de 15 años tanto como en frontend como en backend.
 
@@ -22,5 +21,3 @@ He estado trabajando como desarrollador de software por mas de 15 años tanto co
 🧠  Estoy aprendiendo neerlandés e ingles.
 🤝  Estoy abierto a colaborar en proyectos Javascript en general.
 ⚡  Padre, Blogger y estoy en constante aprendizaje.
-
-

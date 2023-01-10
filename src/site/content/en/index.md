@@ -1,6 +1,6 @@
 ---
 layout: home
-title: JMSalazarDev Blog 
+title: JMSalazarDev Blog
 excerpt: Welcome to my personal blog where I write about software development and other things that I enjoy.
 eleventyNavigation:
   key: en
@@ -9,10 +9,9 @@ eleventyNavigation:
   icon: home
 ---
 
-Hello 👋 My name is José Miguel Salazar
-=======================================
-Software Engineer
----------------------
+# Hello 👋 My name is José Miguel Salazar
+
+## Software Engineer
 
 I have been working as a software developer for over 15 years, both in frontend and backend.
 

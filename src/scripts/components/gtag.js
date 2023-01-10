@@ -19,7 +19,7 @@ export default function (Alpine) {
       script.onload = () => {
         window.dataLayer = window.dataLayer || [];
         function gtag() {
-          dataLayer.push(arguments);
+          window.dataLayer.push(arguments);
         }
         gtag("js", new Date());
         config.ids.forEach((id) => gtag("config", id));
