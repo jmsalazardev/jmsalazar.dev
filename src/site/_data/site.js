@@ -56,6 +56,10 @@ module.exports = {
       name: "theme-color",
       content: manifest.theme_color,
     },
+    {
+      property: "fb:app_id",
+      content: "853083879289283",
+    },
   ],
   ads,
   analytics,

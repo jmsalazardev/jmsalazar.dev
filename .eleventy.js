@@ -126,18 +126,25 @@ module.exports = (eleventyConfig) => {
   }
 
   eleventyConfig.on("eleventy.after", async () => {
-    const langs = ["en"];
-    for (const lang of langs) {
-      await fs.promises.mkdir(`public/localized/${lang}_ALL/`, {
+    const defaultLocale = require("./src/site/_data/locale.json");
+    const locales = require("./src/site/_data/locales.json");
+
+    for (const locale of locales) {
+      await fs.promises.mkdir(`public/localized/${locale.lang}_ALL/`, {
         recursive: true,
       });
+      let basePath =
+        locale.lang === defaultLocale.lang
+          ? `public/`
+          : `public/${locale.lang}/`;
+
       await fs.promises.copyFile(
-        `public/${lang}/index.html`,
-        `public/localized/${lang}_ALL/index.html`
+        `${basePath}/index.html`,
+        `public/localized/${locale.lang}_ALL/index.html`
       );
       await fs.promises.copyFile(
-        `public/${lang}/404.html`,
-        `public/localized/${lang}_ALL/404.html`
+        `${basePath}/404.html`,
+        `public/localized/${locale.lang}_ALL/404.html`
       );
     }
   });

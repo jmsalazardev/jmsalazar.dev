@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Terms",
+    "description": "Terms and conditions",
+    "link": "/en/terms/"
+  },
+  {
+    "label": "Privacy",
+    "description": "Privacy Policy",
+    "link": "/en/privacy/"
+  },
+  {
+    "label": "Contact",
+    "description": "Contact me",
+    "link": "/en/contact/"
+  }
+]

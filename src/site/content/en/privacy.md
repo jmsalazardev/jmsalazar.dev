@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: simple
 title: Privacy Policy
 description: Do you have questions about how we handle your data? Check the privacy policy of jmsalazar.dev, happy to read your comments.
 date: 2022-04-05T00:00:00.000+01:00
@@ -33,7 +33,7 @@ We do not sell, trade, or otherwise transfer to outside parties information abou
 
 We implement a variety of security measures to maintain the safety of your personal information. We use advanced encryption to protect sensitive information transmitted online. We work with Google Analytics and Google AdSense technologies, which are the most reliable in the market.
 
-\*\*Do we use cookies?
+**Do we use cookies?**
 
 Yes, our cookies improve access to our site and identify repeat visitors. What's more, our cookies enhance the user experience by tracking user interests. However, this use of cookies is in no way linked to any personally identifiable information on our site.
 
