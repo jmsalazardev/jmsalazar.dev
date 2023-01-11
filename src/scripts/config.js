@@ -6,7 +6,7 @@ module.exports = {
       async: true,
     },
     delay: 3500,
-    ids: ["310458696"],
+    ids: ["G-KH7TX6T3E9"],
   },
   ads: {
     hosts: ["jmsalazar.dev"],
