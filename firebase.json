@@ -15,15 +15,15 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "script-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.google.com *.googleapis.com"
+            "value": "script-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.google.com *.googleapis.com *.googlesyndication.com"
           },
           {
             "key": "Content-Security-Policy",
-            "value": "style-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google.com *.googleapis.com *.googleadservices.com"
+            "value": "style-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google.com *.googleapis.com *.googleadservices.com *.googlesyndication.com"
           },
           {
             "key": "Content-Security-Policy",
-            "value": "img-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.googleusercontent.com *.google-analytics.com *.google.com *.gstatic.com googleads.g.doubleclick.net"
+            "value": "img-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.googleusercontent.com *.google-analytics.com *.google.com *.gstatic.com googleads.g.doubleclick.net *.googlesyndication.com"
           },
           {
             "key": "Content-Security-Policy",
@@ -31,7 +31,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "connect-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.analytics.google.com"
+            "value": "connect-src https://jmsalazar.dev *.disquscdn.com *.disqus.com *.google-analytics.com *.analytics.google.com *.googlesyndication.com"
           }
         ]
       }

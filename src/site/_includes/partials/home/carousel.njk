@@ -4,7 +4,7 @@
     <!-- Carousel wrapper -->
     <div x-ref="items" class="overflow-hidden relative h-56 rounded-lg md:h-96">
 
-        {% for item in es.homeCarousel %}
+        {% for item in i18n[locale.lang].homeCarousel %}
             {{ carousel.item(loop.index0, item) }}
         {% endfor %}
 
