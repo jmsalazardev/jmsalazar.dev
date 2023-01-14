@@ -1,7 +1,7 @@
 ---
 title: 5 Beneficios de Aprender a Programar
 slug: 5-beneficios-aprender-programar
-excerpt: Conoce estos 5 benericios de Aprender a Programar que te motivarán a Aprender Programación hoy mismo.
+excerpt: Conoce estos 5 beneficios de Aprender a Programar que te motivarán a Aprender Programación hoy mismo.
 image: https://lh3.googleusercontent.com/_LLXJxxZgXfLmJqAYrqY6YiWxBrkx8At_iui5_sPjr24MfXVnGGkZiNHLhjDbagMq8jK2yLQ5GYRNQwsuN8iXMDUSv-9j9ZdS46ixcNTLw7_-5-VuUm8UGnst_N9aZjTeu2xWGm0B6w#width=4898&height=2755
 date: 2023-01-12
 tags:
