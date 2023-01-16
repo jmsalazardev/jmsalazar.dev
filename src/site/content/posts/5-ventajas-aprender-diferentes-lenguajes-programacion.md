@@ -8,6 +8,10 @@ tags:
   - programacion
 toc: true
 author: jmsalazardev
+alternate:
+  - type: lang
+    hreflang: en
+    href: /en/posts/5-advantages-learning-different-programming-languages/
 ---
 
 ## ¿Por qué debería aprender diferentes lenguajes de programación?
@@ -59,7 +63,7 @@ Aprender diferentes lenguajes de programación amplía tus oportunidades de empl
 - **Te permite trabajar en proyectos internacionales:**
   Si sabes varios lenguajes de programación, tienes la oportunidad de trabajar en proyectos con compañías y equipos de diferentes países, lo cual amplía tus oportunidades de empleo a nivel internacional.
 
-## 3. Te permite elegir el lenguaje adecuado para un proyecto específico:
+## 3. Te permite elegir el lenguaje adecuado para un proyecto específico
 
 ![software engineering architecture](https://lh3.googleusercontent.com/s5wR9nNmbppSwk6m2S1oGoymo6aR86zNsnK3xN8BtnoSGsn_YbppE7kxJ3gfj9VlacyOUF4JGmIA-rd_HHkQhLQQh36dviuIxTV5NI9MCnw8Asb0dnF5LjQEZeLdQ__8NQp8mXP0NBU#width=2448&height=1377 "Software Architecture")
 

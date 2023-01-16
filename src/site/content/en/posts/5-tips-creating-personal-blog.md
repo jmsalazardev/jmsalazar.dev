@@ -10,7 +10,7 @@ toc: true
 author: jmsalazardev
 alternate:
   - type: lang
-    hreflang: en
+    hreflang: es
     href: /posts/5-consejos-crear-blog-personal/
 ---
 
