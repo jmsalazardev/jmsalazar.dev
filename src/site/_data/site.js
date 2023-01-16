@@ -60,6 +60,10 @@ module.exports = {
       property: "fb:app_id",
       content: "853083879289283",
     },
+    {
+      name: "generator",
+      content: "Eleventy",
+    },
   ],
   ads,
   analytics,
