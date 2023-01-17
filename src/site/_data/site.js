@@ -78,6 +78,14 @@ module.exports = {
       rel: "me",
       href: "mailto:admin@jmsalazar.dev",
     },
+    {
+      rel: "webmention",
+      href: "https://webmention.io/jmsalazar.dev/webmention",
+    },
+    {
+      rel: "pingback",
+      href: "https://webmention.io/jmsalazar.dev/xmlrpc",
+    },
   ],
   ads,
   analytics,
