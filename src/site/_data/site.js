@@ -65,6 +65,20 @@ module.exports = {
       content: "Eleventy",
     },
   ],
+  links: [
+    {
+      href: "https://github.com/jmsalazardev",
+      rel: "me",
+    },
+    {
+      rel: "me",
+      href: "https://twitter.com/jmsalazardev",
+    },
+    {
+      rel: "me",
+      href: "mailto:admin@jmsalazar.dev",
+    },
+  ],
   ads,
   analytics,
 };

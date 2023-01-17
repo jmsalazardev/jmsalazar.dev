@@ -10,6 +10,10 @@
         />
         {% endfor %}
 
+        {%- for meta in site.links -%}
+            <link {% for key, value in meta -%}{{ key }}="{{ value }}"{%- endfor -%} />
+        {%- endfor -%}
+
         {% seo "" %}
 
         {% for link in alternate %}
