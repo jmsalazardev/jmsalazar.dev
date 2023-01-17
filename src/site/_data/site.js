@@ -86,6 +86,14 @@ module.exports = {
       rel: "pingback",
       href: "https://webmention.io/jmsalazar.dev/xmlrpc",
     },
+    {
+      rel: "authorization_endpoint",
+      href: "https://indieauth.com/auth",
+    },
+    {
+      rel: "token_endpoint",
+      href: "https://tokens.indieauth.com/token",
+    },
   ],
   ads,
   analytics,
