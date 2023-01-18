@@ -4,6 +4,7 @@ slug: 5-tips-creating-personal-blog
 excerpt:
 image: https://lh3.googleusercontent.com/__vYtT331WUib9NQHMYxXm5-9F8WUCF-wAwGqHKlJwYkPyXg9cfMxgCCEdoxOrwE9aipuF7jn1Wc3rGi1i3OPHL9XZ6ybsO1JpcWz6SDQ33jf67eP49ljLS4piB5EqI4BxQveQGvsjk#width=4898&height=2755
 date: 2023-01-10
+lastmod: 2023-01-18
 tags:
   - blogging
 toc: true

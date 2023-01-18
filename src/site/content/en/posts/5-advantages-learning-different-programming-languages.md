@@ -4,6 +4,7 @@ slug: 5-advantages-learning-different-programming-languages
 excerpt: Learning different programming languages is crucial for improving your skills and knowledge as a programmer.
 image: https://lh3.googleusercontent.com/B7lnHItOFwtktEvlsXZp6y4-mwIV4XyXMQvS8LThKXnPZTXzj7Emgo5jJRNbs00cQ79Qxuk03BbL-LmqXlrd-tzFkRmrZD7GsqPUB2i-umsor27Jz7hYJ6iBAczbUfm9ppv7TNHI1LU#width=4898&height=2755
 date: 2023-01-16
+lastmod: 2023-01-18
 tags:
   - programming
 toc: true

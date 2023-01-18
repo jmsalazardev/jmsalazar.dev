@@ -4,6 +4,7 @@ slug: 5-advantages-disadvantages-being-programmer
 excerpt: Learn about these 5 advantages and disadvantages of being a programmer that will help you make the decision to become a programmer too.
 image: https://lh3.googleusercontent.com/N2glDcUKHeE8HeB1ARqfKbyAaaMJd8UI2x_pNoaTeBmcGX6b6p7KonGpTQn4lCfJfveyL0CTlnHeIXwlq3-QeDZU6Jbu-LhrJa5qVuR-TXnrg_gW0mIrSYtiY1ZU7ns_-9I82SI0N9k#width=4898&height=2755
 date: 2023-01-12
+lastmod: 2023-01-18
 tags:
   - programming
 toc: true

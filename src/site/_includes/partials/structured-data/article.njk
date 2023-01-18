@@ -3,26 +3,35 @@
 
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "BlogPosting",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "{{ absolutePostUrl }}"
       },
       "headline": "{{ title }}",
-      "image": [
-        "{{ image }}"
-      ],
+      {% set imageObject = helpers.imageParser(image) %}
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{ imageObject.url }}",
+        "url": "{{ imageObject.url }}",
+        "height": "{{ imageObject.height }}",
+        "width": "{{ imageObject.width }}"
+      },
       "datePublished": "{{date | dateToRfc3339 }}",
+      {% if lastmod %}
+      "dateModified": "{{lastmod | dateToRfc3339 }}",
+      {% endif %}
       {% if author %}
+      {% set authorObject = helpers.getAuthor(author) %}
       "author": {
         "@type": "Person",
-        "name": "{{ author }}",
-        "url": "https://twitter.com/JMSalazarDev/"
+        "name": "{{ authorObject.name }}",
+        "url": "{{ authorObject.url }}"
       },
       {% endif %}
       "publisher": {
         "@type": "Organization",
-        "name": "JMSalazarDev",
+        "name": "{{ site.name }}",
         "logo": {
           "@type": "ImageObject",
           "url": "{{  "maskable_icon.png" | url | absoluteUrl(metadata.url) }}"

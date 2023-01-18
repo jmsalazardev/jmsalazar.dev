@@ -4,6 +4,7 @@ slug: 5-benefits-learning-programming
 excerpt: Learn about these 5 benefits of Learning to Program that will motivate you to learn programming today.
 image: https://lh3.googleusercontent.com/_LLXJxxZgXfLmJqAYrqY6YiWxBrkx8At_iui5_sPjr24MfXVnGGkZiNHLhjDbagMq8jK2yLQ5GYRNQwsuN8iXMDUSv-9j9ZdS46ixcNTLw7_-5-VuUm8UGnst_N9aZjTeu2xWGm0B6w#width=4898&height=2755
 date: 2023-01-12
+lastmod: 2023-01-18
 tags:
   - programming
 toc: true

@@ -4,6 +4,7 @@ slug: 5-ventajas-aprender-diferentes-lenguajes-programacion
 excerpt: Aprender diferentes lenguajes de programación es crucial para mejorar tus habilidades y conocimientos como programador.
 image: https://lh3.googleusercontent.com/B7lnHItOFwtktEvlsXZp6y4-mwIV4XyXMQvS8LThKXnPZTXzj7Emgo5jJRNbs00cQ79Qxuk03BbL-LmqXlrd-tzFkRmrZD7GsqPUB2i-umsor27Jz7hYJ6iBAczbUfm9ppv7TNHI1LU#width=4898&height=2755
 date: 2023-01-16
+lastmod: 2023-01-18
 tags:
   - programacion
 toc: true

@@ -1,3 +1,6 @@
+const imageAttrs = require("../_11ty/filters/image-attrs");
+const authors = require("../_data/authors.json");
+
 module.exports = {
   currentYear() {
     const today = new Date();
@@ -25,5 +28,17 @@ module.exports = {
       sizes: `${size}x${size}`,
       type: "image/png",
     }));
+  },
+  imageParser: (image) => imageAttrs(image),
+  getAuthor: (author) => {
+    if (author in authors) return authors[author];
+
+    for (const [, value] of Object.entries(authors)) {
+      if (value.default) {
+        return value;
+      }
+    }
+
+    return null;
   },
 };

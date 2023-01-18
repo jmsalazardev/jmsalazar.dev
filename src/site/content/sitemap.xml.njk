@@ -8,13 +8,13 @@ permalink: "/sitemap.xml"
         {%- if not page.data.noindex and not page.data.draft and page.data.layout == "post" -%}
             {%- if page.url -%}
                 {%- set fullUrl -%}{{ site.url }}{{ page.url }}{%- endset -%}
-                {%- set lastMod = page.data.date -%}
-                {%- if page.data.updated -%}
-                    {%- set lastMod = page.data.updated -%}
+                {%- set lastmod = page.data.date -%}
+                {%- if page.data.lastmod -%}
+                    {%- set lastmod = page.data.lastmod -%}
                 {%- endif -%}
     <url>
         <loc>{{ fullUrl }}</loc>
-        <lastmod>{{ lastMod | htmlDateString }}</lastmod>
+        <lastmod>{{ lastmod | htmlDateString }}</lastmod>
     </url>
             {%- endif -%}
         {%- endif -%}

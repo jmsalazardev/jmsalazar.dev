@@ -3,8 +3,8 @@ title: 5 Razones por las qué deberías Aprender Programación
 slug: 5-razones-aprender-programacion
 excerpt: Programar es una habilidad increíblemente valiosa que te permitirá mejorar enormemente tus actuales condiciones de trabajo.
 image: https://lh3.googleusercontent.com/Etun_zU6wpawIm7Hk7nzD7vGE8e3XpSlUAYVgO5lyJiSg0EUpFPNV04IzRUewiHCD4Yto3luTSKWPV1U699-eYUE2jPiu0YPqZuIADDgimZ8-1UvfQ4EqyQhaIcaKLTT5Ie9eyE3DY0#width=4898&height=2755
-
-date: 2022-04-12T00:00:00.000+01:00
+date: 2022-04-12
+lastmod: 2023-01-18
 tags:
   - programacion
 toc: true

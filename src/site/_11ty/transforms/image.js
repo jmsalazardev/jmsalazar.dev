@@ -1,27 +1,5 @@
 const cheerio = require("cheerio");
-
-const parseImageSrc = (src) => {
-  if (src === "") return;
-  let url;
-  try {
-    url = new URL(src);
-  } catch (error) {
-    console.log(src, error);
-    return;
-  }
-
-  if (url.hostname !== "lh3.googleusercontent.com") return null;
-
-  const { origin, pathname, search, hash } = url;
-  const params = new URLSearchParams(hash.slice(1));
-
-  return {
-    src: `${origin}${pathname}${search}`,
-    width: params.get("width"),
-    height: params.get("height"),
-    className: params.get("className"),
-  };
-};
+const imageAttrs = require("../filters/image-attrs");
 
 module.exports = (content, outputPath) => {
   if (!outputPath.endsWith(".html")) return content;
@@ -29,7 +7,7 @@ module.exports = (content, outputPath) => {
   const $ = cheerio.load(content);
   $("img").each(function () {
     const imageSrc = $(this).attr("src");
-    const parsedSrc = parseImageSrc(imageSrc);
+    const parsedSrc = imageAttrs(imageSrc);
     if (!parsedSrc) {
       return;
     }
