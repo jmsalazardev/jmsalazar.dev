@@ -14,8 +14,7 @@ permalink: "/sitemap.xml"
                 {%- endif -%}
     <url>
         <loc>{{ fullUrl }}</loc>
-        <lastmod>{{ lastMod | htmlDateString }}</lastmod>    
-        <changefreq>{{ page.data.changeFreq if page.data.changeFreq else "monthly" }}</changefreq>
+        <lastmod>{{ lastMod | htmlDateString }}</lastmod>
     </url>
             {%- endif -%}
         {%- endif -%}
