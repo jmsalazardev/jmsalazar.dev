@@ -3,7 +3,8 @@ layout: base
 ---
 
 {% import "macros/page.njk" as pageMacros %}
-{% import "macros/posts.njk" as postsMacros %}
+{% import "macros/posts.njk" as postsMacros with context %}
+
 
 {% include "partials/structured-data/breadcrumb.njk" %}
 <main class="flex-auto pt-16">

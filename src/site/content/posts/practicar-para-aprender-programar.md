@@ -1,17 +1,15 @@
 ---
 title: Practicar para Aprender a Programar
 slug: practicar-para-aprender-programar
-excerpt: Debes practicar mucho si quieres ser programador.
+excerpt: Practicar es esencial para aprender a programar ya que te permite aplicar lo que has aprendido de manera práctica y ver cómo funciona en diferentes situaciones. Además te permite descubrir tus propios errores y aprender a solucionarlos, lo que es esencial para convertirte en un programador experto.
 image: https://lh3.googleusercontent.com/G6XkhwqF9LHEbX0s3m5X6u5ZvNnS2Gz2KwDEZzXx5cyOG82wfnetcbI1-EYOLMxH6-eR1iy-auHAoCBnB7ZGEalTlv_z5l6E0kcF6XH1Z8iCj7gb2rrOhkrAiEAZqnbuqwl7ZNO8XHU#width=2448&height=1376
 date: 2023-01-17
 lastmod: 2023-01-18
 tags:
-  - programacion
+  - programming
 toc: true
 author: jmsalazardev
 ---
-
-Practicar es esencial para aprender a programar ya que te permite aplicar lo que has aprendido de manera práctica y ver cómo funciona en diferentes situaciones. Además te permite descubrir tus propios errores y aprender a solucionarlos, lo que es esencial para convertirte en un programador experto.
 
 ## ¿Por qué debo practicar para aprender a programar?
 

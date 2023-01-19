@@ -6,7 +6,8 @@ image: https://lh3.googleusercontent.com/Etun_zU6wpawIm7Hk7nzD7vGE8e3XpSlUAYVgO5
 date: 2022-04-12
 lastmod: 2023-01-18
 tags:
-  - programacion
+  - programming
+  - beginners
 toc: true
 author: jmsalazardev
 alternate:

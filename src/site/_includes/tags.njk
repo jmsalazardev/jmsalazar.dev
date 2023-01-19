@@ -10,20 +10,20 @@ layout: base
     
     <div class="mx-auto flex justify-center p-4 max-w-7xl ">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for tag in collections[collection] %}
+        {% for key in collections[collection] %}
+        {% set entry = "tags." + key %}
+        {% set tag = entry | i18n(locale) %}
+        {%- set tagUrl -%}
+        {%- if not locale.default -%}
+          /{{locale.lang}}
+        {%- endif -%}
+          /tags/{{ key | slug}}/
+        {%- endset -%}
         <article class="flex flex-col border-2 rounded p-5 max-w-xl prose dark:prose-invert">
-          {% if locale.default %}
-          {% set tagPrefix %}/tags{% endset %}
-          {% else %}
-          {% set tagPrefix %}/{{locale.lang}}/tags/{% endset %}
-          {% endif %}
-          {% set tagUrl %}{{ tagPrefix }}/{{ tag | slug}}/{% endset %}
-          {% set tagTitle %}tags.{{tag}}.title{% endset %}
-          {% set tagDescription %}tags.{{tag}}.description{% endset %}
           <h2 class="font-bold">
-            <a href="{{ tagUrl | url }}" class="text-xl">{{ tagTitle | i18n(locale) }}</a>
+            <a href="{{ tagUrl | url }}" class="text-xl">{{ tag.title }}</a>
           </h2>
-          <p class="pt-1">{{ tagDescription | i18n(locale) }}</p>
+          <p class="pt-1">{{ tag.description }}</p>
         </article>
         {% endfor %}
       </div>

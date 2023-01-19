@@ -16,24 +16,52 @@
 
 
 {% macro card(post, locale) %}
-    
    <div class="max-w-2xl h-full mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <img class="object-cover w-full h-48 md:h-64" src="{{ post.data.image }}&amp;class=object-cover w-full h-64 md:h-48&amp;crop=center" alt="{{ post.title }}">
 
-        <div class="px-4 pt-4">
+        <div class="px-4 flex-row">
             <div>
-                <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{{ post.data.category | i18n(locale) }}</span>
                 <a href="{{ post.url }}" class="w-full block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline">{{ post.data.title | shortTitle }}</a>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ post.data.title | subtitle }}</p>
             </div>
 
-            <div class="mt-4">
+            <div class="flex-row">
                 <div class="flex items-center">
                     <span class="text-xs text-gray-600 dark:text-gray-300">{{post.data.date | readableDate}}</span>
+                </div>
+                <div class="flex items-center">
+                {{ renderTags(post.data.tags) }}                
                 </div>
             </div>
         </div>
         <div class="h-4 min-h-full mt-auto"></div>
     </div>
+
+{% endmacro %}
+
+
+{% macro renderAuthor($author, $date) %}
+    {% if $author %}
+        <div class="flex items-center space-x-4 py-4 not-prose">
+            <img class="w-10 h-10 rounded-full" src="{{ $author.avatar }}#width=80&height=80" alt="{{ $author.name }}">
+            <div class="space-y-1 font-medium text-gray-700 dark:text-white">
+                <div class="text-sm text-highlight">{{ $author.alias}}</div>
+                <div class="flex space-x-4">
+                    <span class="text-xs text-gray-600 dark:text-gray-300">{{date | readableDate}}</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endmacro %}
+
+{% macro renderTags($tags) %}
+    {% if $tags %}
+        <div class="flex items-center space-x-4 py-4 not-prose">
+            {% for item in $tags %}
+                    <a href="#" class="inline-flex rounded whitespace-nowrap px-2 py-2 text-xs text-gray-600 dark:text-gray-300  hover:text-gray-200 hover:bg-indigo-700">#{{item | slug }}</a>
+                    {% endfor %}
+        </div>
+    {% endif %}
 
 {% endmacro %}

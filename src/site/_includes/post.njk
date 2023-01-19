@@ -1,23 +1,27 @@
 ---
-layout: base 
+    layout: base 
 ---
+{%- from "components/post/macro.njk" import author, tag -%}
+
 {% import "./macros/structured-data.njk" as structuredData %}
 
 {% if not disableAds %}
-     <div x-data="ads" class="hidden"></div>            
+    <div x-data="ads" class="hidden"></div>
 {% endif %}
 
 {% include "partials/structured-data/breadcrumb.njk" %}
 {% include "partials/structured-data/article.njk" %}
 
-{% if videos  %}
+{% if videos %}
     {% for item in videos %}
         {{ structuredData.video(loop.index0, item) }}
     {% endfor %}
 {% endif %}
 
+ {% set $author = helpers.getAuthor(author) %}
+
+
 <main class="flex-auto pt-16">
-   
 
     <div class="mx-auto flex flex-row-reverse justify-center">
 
@@ -26,37 +30,19 @@ layout: base
                 {% include "partials/breadcrumb.njk" %}
                 <h1>
                     {{ title | shortTitle }}
-                    <span class="mt-2 block text-lg text-slate-700 dark:text-slate-400">{{ title | subtitle }} </span>    
+                    <span class="mt-2 block text-lg text-slate-700 dark:text-slate-400">{{ title | subtitle }}
+                    </span>
                 </h1>
                 <img class="object-none object-center mx-auto w-full max-h-96 shadow-lg" src="{{ image }}" alt="{{ title }}">
                 <p>{{ excerpt }}</p>
                 <time class="mx-1 text-xs text-gray-600 dark:text-gray-300">{{date | readableDate}}</time>
-               
-                {% set $author = authors[author] %}
-                {% if $author %}
-                
-                <div class="flex items-center space-x-4 py-4 not-prose">
-                    <img class="w-10 h-10 rounded-full" src="{{ $author.avatar }}#width=80&height=80" alt="{{ $author.name }}">
-                    <div class="space-y-1 font-medium text-gray-700 dark:text-white">
-                        <div class="text-highlight">{{ $author.name}}</div>
-                        <div class="flex space-x-4">
-                        {% for item in $author.links %}
 
-                        <a href="{{ item.link }}" class="text-sm text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-200" rel="noopener" target="_blank">
-                            {% if item.icon %}
-                                {% set icon = "/src/svg/" + item.icon + ".svg" %}
-                                
-                            {% endif %}
-                            {{ item.label}}
-                        </a>
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
+              
+                {% if $author %}
+                    {{ author($author) }}
                 {% endif %}
             </header>
 
-            
             {%- if toc -%}
                 <details class="border-y-2 border-gray-500 py-4 px-1 w-full" aria-label="On this page">
                     <summary class="font-medium text-highlight list-none relative leading-6">{{ 'content.on-this-page' | i18n(locale) }}</summary>
@@ -65,23 +51,20 @@ layout: base
             {%- endif -%}
 
             {{ content | safe}}
-            
+
             <div class="w-full tags py-6 tags">
-            {% if locale.default %}
-            {% set tagPrefix %}/tags{% endset %}
-            {% else %}
-            {% set tagPrefix %}/{{locale.lang}}/tags/{% endset %}
-            {% endif %}
-
-            {% for tag in tags %}
-                {% set tagUrl %}{{ tagPrefix }}/{{ tag | slug}}/{% endset %}
-                {% set tagTitle %}tags.{{tag}}.title{% endset %}
-                {% set tagDescription %}tags.{{tag}}.description{% endset %}
-
-                <a href="{{ tagUrl | url }}" title="{{ tagDescription | i18n(locale) }}" class="mr-2 px-4 py-2 border-2 rounded-full no-underline font-light cursor-pointer hover:bg-indigo-600 hover:text-white hover:border-0"> 
-                    {{ tagTitle | i18n(locale) }}
-                </a>
-            {% endfor %}
+                {% for $tag in tags %}
+                    {% set tagUrl = helpers.getTagUrl($tag, locale) %}
+                    {% set tagTitle %}tags.{{$tag}}.title{% endset %}
+                    {% set tagDescription %}tags.{{$tag}}.description{% endset %}
+                    {{ 
+                        tag({
+                            link: tagUrl,
+                            title: tagTitle | i18n(locale),
+                            description: tagDescription | i18n(locale)
+                        }) 
+                    }}
+                {% endfor %}
             </div>
             <footer class="py-6" x-data="comments" x-intersect.once="load" x-init="url='{{ site.url }}{{ page.url }}';id='{{ page.url | slug }}'"></footer>
 

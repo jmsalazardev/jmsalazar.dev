@@ -1,6 +1,12 @@
 programming:
   title: Programming
   description: Check the latest news and updates for developers.
+  color: #890606
 blogging:
   title: Blogging
   description: Topics for bloggers and content creators.
+  color: #890606
+beginners:
+  title: Beginners
+  color: #008335
+  description: Topics for beginners.

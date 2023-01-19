@@ -7,6 +7,7 @@ date: 2023-01-10
 lastmod: 2023-01-18
 tags:
   - blogging
+  - beginners
 toc: true
 author: jmsalazardev
 alternate:

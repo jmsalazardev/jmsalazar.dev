@@ -7,6 +7,7 @@ date: 2023-01-16
 lastmod: 2023-01-18
 tags:
   - programming
+  - beginners
 toc: true
 author: jmsalazardev
 alternate:

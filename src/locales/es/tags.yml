@@ -1,6 +1,12 @@
-programacion:
+programming:
   title: Programación
   description: Revisa las últimas noticias y actualizaciones para desarrolladores.
+  color: #890606
 blogging:
   title: Blogging
   description: Temas para bloggers y creadores de contenidos.
+  color: #890606
+beginners:
+  title: Principiantes
+  description: Temas para principiantes.
+  color: #008335

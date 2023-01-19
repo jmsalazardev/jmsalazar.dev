@@ -1,3 +1,4 @@
+const slugify = require("../_11ty/filters/slugify");
 const imageAttrs = require("../_11ty/filters/image-attrs");
 const authors = require("../_data/authors.json");
 
@@ -30,6 +31,10 @@ module.exports = {
     }));
   },
   imageParser: (image) => imageAttrs(image),
+  getTagUrl: (tag, locale) => {
+    const prefix = locale.default ? "" : `/${locale.lang}`;
+    return `${prefix}/tags/${slugify(tag)}/`;
+  },
   getAuthor: (author) => {
     if (author in authors) return authors[author];
 
