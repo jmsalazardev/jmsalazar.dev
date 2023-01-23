@@ -1,0 +1,5 @@
+{%- from "../../components/structured-data/macro.njk" import blogPosting with context -%}
+
+{%- for item in videos -%}
+        {{ structuredData.video(loop.index0, item) }}
+{%- endfor -%}

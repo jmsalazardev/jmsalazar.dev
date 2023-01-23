@@ -1,0 +1,15 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "VideoObject",
+    {% if data.name %}"name": "{{data.name}}",{% endif %}
+    {% if data.duration %}"duration": "{{data.duration}}",{% endif %}
+    {% if data.uploadDate %}"uploadDate": "{{data.uploadDate  | dateToRfc3339 }}",{% endif %}
+    "embedUrl": "{{embedUrl}}",
+    "thumbnailUrl": "{{thumbnailUrl}}",
+    "description": "{{description}}",
+    {% if data.author %}
+    "author":"{{data.author}}"
+    {% else %}
+    "author":"JMSalazarDev"
+    {% endif %}
+}

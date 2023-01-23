@@ -1,0 +1,19 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "VideoObject",
+    {% if $props.name %}
+    "name": "{{$props.name}}",
+    {% endif %}
+    {% if $props.duration %}
+    "duration": "{{$props.duration}}",
+    {% endif %}
+    {% if $props.uploadDate %}
+    "uploadDate": "{{$props.uploadDate  | dateToRfc3339 }}",
+    {% endif %}
+    {% if $props.author %}
+    "author":"{{$props.author}}",
+    {% endif %}
+    "thumbnailUrl": "{{$props.thumbnailUrl}}",
+    "description": "{{$props.description}}",
+    "embedUrl": "{{$props.embedUrl}}",
+}

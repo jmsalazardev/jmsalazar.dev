@@ -1,0 +1,11 @@
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {%- for entry in navPages -%}
+    {%- set absolutePostUrl = entry.url | url | absoluteUrl(metadata.url) %}
+    {{ structuredData.itemListElement(loop.index, entry.title, absolutePostUrl) }}
+    {%- if not loop.last -%},{%- endif -%}
+    {%- endfor -%}
+    ]
+}

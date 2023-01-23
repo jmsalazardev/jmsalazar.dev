@@ -17,6 +17,7 @@ module.exports = (value) => {
   const height = parseInt(params.get("height"), 10);
   const className = params.get("className");
   return {
+    id: `${origin}${pathname}${search}`,
     url: `${origin}${pathname}${search}=w${width}-h${height}-rw`,
     src: `${origin}${pathname}${search}`,
     width,

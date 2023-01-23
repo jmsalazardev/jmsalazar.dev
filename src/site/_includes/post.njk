@@ -2,23 +2,17 @@
     layout: base 
 ---
 {%- from "components/post/macro.njk" import author, tag -%}
+{%- set $author = helpers.getAuthor(author) -%}
 
-{% import "./macros/structured-data.njk" as structuredData %}
-
-{% if not disableAds %}
+{%- if not disableAds -%}
     <div x-data="ads" class="hidden"></div>
-{% endif %}
+{%- endif -%}
 
-{% include "partials/structured-data/breadcrumb.njk" %}
-{% include "partials/structured-data/article.njk" %}
 
-{% if videos %}
-    {% for item in videos %}
-        {{ structuredData.video(loop.index0, item) }}
-    {% endfor %}
-{% endif %}
+{%- include "partials/structured-data/article.njk" -%}
+{%- include "partials/structured-data/breadcrumb.njk" -%}
 
- {% set $author = helpers.getAuthor(author) %}
+
 
 
 <main class="flex-auto pt-16">
@@ -37,7 +31,6 @@
                 <p>{{ excerpt }}</p>
                 <time class="mx-1 text-xs text-gray-600 dark:text-gray-300">{{date | readableDate}}</time>
 
-              
                 {% if $author %}
                     {{ author($author) }}
                 {% endif %}

@@ -1,0 +1,29 @@
+<div class="max-w-2xl h-full mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <img class="object-cover w-full h-48 md:h-64" src="{{ props.data.image }}&amp;class=object-cover w-full h-64 md:h-48&amp;crop=center" alt="{{ props.data.title }}">
+
+    <div class="px-4 flex-row">
+        <div>
+            <a href="{{ props.url }}" class="w-full block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline">{{ props.data.title | shortTitle }}</a>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ props.data.title | subtitle }}</p>
+        </div>
+
+        <div class="flex-row">
+            <div class="flex items-center">
+                <span class="text-xs text-gray-600 dark:text-gray-300">{{props.date | readableDate}}</span>
+            </div>
+            {% if props.data.tags %}
+                <div class="flex items-center space-x-4 py-4 not-prose">
+
+                    {% for $tag in props.data.tags %}
+                        {% set tagUrl = helpers.getTagUrl($tag, locale) %}
+                        {% set tagTitle %}tags.{{$tag}}.title{% endset %}
+                        {% set tagDescription %}tags.{{$tag}}.description{% endset %}
+                        <a href="{{ tagUrl | url }}" class="inline-flex rounded whitespace-nowrap px-2 py-2 text-xs text-gray-600 dark:text-gray-300  hover:text-gray-200 hover:bg-indigo-700" title="{{ tagDescription | i18n(locale) }}">{{ tagTitle | i18n(locale) }}</a>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="h-4 min-h-full mt-auto"></div>
+</div>

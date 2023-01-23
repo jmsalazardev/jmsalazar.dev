@@ -31,5 +31,15 @@
     "name": "José Miguel Salazar",
     "email": "contacto@jmsalazar.dev",
     "url": "https://jmsalazar.dev/contacto/"
+  },
+  "publisher": {
+    "name": "José Miguel Salazar",
+    "url": "https://jmsalazar.dev",
+    "logo": {
+      "id": "https://lh3.googleusercontent.com/HsbRWL5vKScJK52Zz-al4L9ZhRGF9KW815IpSVUyn05CtC-78IPkbuwIi6udTzh8bGzrs6m5RgaJoqpDOnOFTkmSKTdwXmah3xtvavg-o4gMyJ_AmdRXkutkfOUkubl3hOjcVy5kE6Q",
+      "url": "https://lh3.googleusercontent.com/HsbRWL5vKScJK52Zz-al4L9ZhRGF9KW815IpSVUyn05CtC-78IPkbuwIi6udTzh8bGzrs6m5RgaJoqpDOnOFTkmSKTdwXmah3xtvavg-o4gMyJ_AmdRXkutkfOUkubl3hOjcVy5kE6Q=w1080-h1080",
+      "width": "1080",
+      "height": "1080"
+    }
   }
 }

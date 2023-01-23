@@ -1,42 +1,5 @@
+{%- from "../../components/structured-data/macro.njk" import blogPosting with context -%}
+
 <script type="application/ld+json">
-{%- set absolutePostUrl = permalink | url | absoluteUrl(metadata.url) %}
-
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ absolutePostUrl }}"
-      },
-      "headline": "{{ title }}",
-      {% set imageObject = helpers.imageParser(image) %}
-      "image": {
-        "@type": "ImageObject",
-        "@id": "{{ imageObject.url }}",
-        "url": "{{ imageObject.url }}",
-        "height": "{{ imageObject.height }}",
-        "width": "{{ imageObject.width }}"
-      },
-      "datePublished": "{{date | dateToRfc3339 }}",
-      {% if lastmod %}
-      "dateModified": "{{lastmod | dateToRfc3339 }}",
-      {% endif %}
-      {% if author %}
-      {% set authorObject = helpers.getAuthor(author) %}
-      "author": {
-        "@type": "Person",
-        "name": "{{ authorObject.name }}",
-        "url": "{{ authorObject.url }}"
-      },
-      {% endif %}
-      "publisher": {
-        "@type": "Organization",
-        "name": "{{ site.name }}",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{  "maskable_icon.png" | url | absoluteUrl(metadata.url) }}"
-        }
-      }
-    }
-
-    </script>
+  {{ blogPosting() }}
+</script>

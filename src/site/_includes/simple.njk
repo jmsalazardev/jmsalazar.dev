@@ -1,13 +1,16 @@
 ---
 layout: base 
 ---
-{% import "macros/page.njk" as pageMacro %}
+{%- from "components/page/macro.njk" import header -%}
 
 
 <main class="flex-auto">
     <div class="mx-auto w-full h-16 md:h-20"></div>
 
-    {{ pageMacro.header(title, description) }}
+    {{ header({
+        title: title,
+        description: excerpt,
+        bg: bg}) }}
 
     <div class="mx-auto flex flex-row-reverse justify-center">
         <div class="prose dark:prose-invert px-4">

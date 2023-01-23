@@ -2,16 +2,12 @@
 layout: base
 tmplClass: home
 ---
-{% import "macros/page.njk" as pageMacro %}
 
 {% include "partials/structured-data/logo.njk" %}
 <main class="flex-auto pt-16">
-  <div class="mx-auto w-full h-24"></div>
+  <div class="mx-auto w-full h-8"></div>
   {% include "partials/home/carousel.njk" %}
-
   <div class="mx-auto justify-center w-full prose dark:prose-invert md:prose-lg lg:prose-xl p-4">
        {{ content | safe}}
   </div>
-  
-  
 </main>

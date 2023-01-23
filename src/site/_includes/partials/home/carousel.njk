@@ -1,18 +1,18 @@
-{% import "../../macros/carousel.njk" as carousel %}
+{%- from "../../components/carousel/macro.njk" import item, indicator -%}
 
 <div x-data="carousel" class="relative">
     <!-- Carousel wrapper -->
     <div x-ref="items" class="overflow-hidden relative h-56 rounded-lg md:h-96">
 
-        {% for item in i18n[locale.lang].homeCarousel %}
-            {{ carousel.item(loop.index0, item) }}
+        {% for $item in i18n[locale.lang].homeCarousel %}
+            {{ item(loop.index0, $item) }}
         {% endfor %}
 
     </div>
     <!-- Slider indicators -->
     <div x-ref="indicators" class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-        {% for item in es.homeCarousel %}
-            {{ carousel.indicator(loop.index0, item) }}        
+        {% for $item in es.homeCarousel %}
+            {{ indicator(loop.index0, $item) }}        
         {% endfor %}
     </div>
     <!-- Slider controls -->

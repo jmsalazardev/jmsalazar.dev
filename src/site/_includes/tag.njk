@@ -1,26 +1,28 @@
 ---
 layout: base
 ---
-{% import "macros/page.njk" as pageMacro %}
-{% import "macros/tag.njk" as tagMacro %}
+{%- from "components/page/macro.njk" import header -%}
+{%- from "components/posts/macro.njk" import card with context -%}
+
+{% set taglist = collections[tag] %}
+{% set tagTitle %}tags.{{tag}}.title{% endset %}
+{% set tagDescription %}tags.{{tag}}.description{% endset %}
 
 <main class="flex-auto">
   <div class="mx-auto w-full h-16 md:h-20"></div>
-    {% set tagTitle %}tags.{{tag}}.title{% endset %}
-    {% set tagDescription %}tags.{{tag}}.description{% endset %}
-
-    {{ pageMacro.header(tagTitle | i18n(locale), tagDescription | i18n(locale)) }}
     
-  <div class="mx-auto flex flex-row-reverse max-w-7xl px-4 ">
+    {{ header({
+        title: tagTitle | i18n(locale),
+        description: tagDescription | i18n(locale),
+        bg: bg}) }}
 
-
-    {% set taglist = collections[tag] %}
-
-    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+    
+  <div class="mx-auto justify-center flex flex-row-reverse max-w-7xl px-4 mb-12 ">
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {% for item in taglist | sort(attribute = 'time') %}
         {% if  item.data.locale.lang === locale.lang %}
         <li>
-            {{ tagMacro.card(item, locale) }}
+            {{ card(item, locale) }}
         </li>
         {% endif %}
       {% endfor %}

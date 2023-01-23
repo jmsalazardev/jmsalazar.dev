@@ -1,0 +1,20 @@
+{%- set $absolutePostUrl = permalink | url | absoluteUrl(metadata.url) %}
+{%- set $image = helpers.imageParser(image) -%}
+{%- set $author = helpers.getAuthor(author) -%}
+{%- set $publisher = metadata.publisher -%}
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ $absolutePostUrl }}"
+    },
+    "headline": "{{ title }}",   
+    "image": {{ imageObject($image)}},
+    "datePublished": "{{date | dateToRfc3339 }}",
+    {% if lastmod -%}
+    "dateModified": "{{lastmod | dateToRfc3339 }}",
+    {%- endif %}
+    "author": {{ person($author)}},
+    "publisher": {{ organization($publisher) }}
+}
