@@ -1,7 +1,7 @@
 ---
     layout: base 
 ---
-{%- from "components/post/macro.njk" import author, tag -%}
+{%- from "components/post/macro.njk" import author, tag with context -%}
 {%- set $author = helpers.getAuthor(author) -%}
 
 {%- if not disableAds -%}

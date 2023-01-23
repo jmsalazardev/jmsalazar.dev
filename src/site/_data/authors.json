@@ -7,30 +7,29 @@
     "url": "https://twitter.com/jmsalazardev",
     "links": [
       {
+        "key": "twitter",
         "label": "Twitter",
-        "link": "https://twitter.com/jmsalazardev",
-        "icon": "twitter"
+        "link": "https://twitter.com/jmsalazardev"
       },
       {
+        "key": "github",
         "label": "Github",
-        "link": "https://github.com/jmsalazardev",
-        "icon": "github"
+        "link": "https://github.com/jmsalazardev"
       },
       {
+        "key": "dev",
         "label": "Dev",
-        "link": "https://dev.to/jmsalazardev",
-        "icon": "dev"
+        "link": "https://dev.to/jmsalazardev"
       },
       {
-        "label": "StackOverflow",
-        "link": "https://stackoverflow.com/users/10077911/jmsalazardev",
-        "icon": "stack-overflow"
+        "key": "stack-overflow",
+        "label": "Stack Overflow",
+        "link": "https://stackoverflow.com/users/10077911/jmsalazardev"
       },
-
       {
+        "key": "instagram",
         "label": "Instagram",
-        "link": "https://www.instagram.com/JMSalazarDev/",
-        "icon": "instagram"
+        "link": "https://www.instagram.com/JMSalazarDev/"
       }
     ]
   }
